@@ -21,12 +21,9 @@ header h1:before {
 footer {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
-  border-top: 1px dashed $conifer; //header;
-  position: absolute;
-  padding: 0 20px;
-  height: 40px;
-  margin-top: -10px;
-  text-align: center;
+  border-bottom: 1px dashed $conifer;
+  padding: 0 20;
+  margin: 40px 0 0 0
 }
 
 footer h2 {
