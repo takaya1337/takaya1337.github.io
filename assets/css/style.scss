@@ -22,10 +22,10 @@ footer {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
   border-top: 1px dashed $conifer; //header;
-  position: relative;
+  position: absolute;
   padding: 0 20px;
   height: 40px;
-  margin-top: -40px;
+  margin-top: -10px;
   text-align: center;
 }
 
