@@ -43,3 +43,16 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+.home {
+    h1 {
+        font-size: 4em;
+        font-family: 'Roboto', sans-serif;
+        color: #ffffff;
+    }
+    p {
+        font-size: 1.5em;
+        line-height: 1.4em;
+        color: #ffffff;
+    }
+}
