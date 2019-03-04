@@ -11,3 +11,9 @@ header h1:before {
   content: "./";
   font-size: 24px;
 }
+
+#main_content a:link,
+#main_content a:visited,
+#main_content a:hover {
+   color: inherit;
+}
