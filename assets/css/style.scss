@@ -27,10 +27,8 @@ footer {
   width: 100%;
   border-top: 1px dashed $conifer; //header;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
+  padding: 0 20px;
+  margin: 0 0 20px 0;
   text-align: center;
 }
 
@@ -38,4 +36,5 @@ footer h2 {
   font-size: 18px;
   font-weight: 300;
   color: #666;
+  text-decoration: none;
 }
