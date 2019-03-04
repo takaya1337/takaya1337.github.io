@@ -6,3 +6,8 @@
 #downloads {
   display: none;
 }
+
+header h1:before {
+  content: "./";
+  font-size: 24px;
+}
