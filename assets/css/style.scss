@@ -26,9 +26,10 @@ footer {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
   border-top: 1px dashed $conifer; //header;
-  position: fixed;
+  position: relative;
   padding: 0 20px;
-  margin: 0 0 40px 0;
+  height: 40px;
+  margin-top: -40px;
   text-align: center;
 }
 
