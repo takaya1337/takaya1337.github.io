@@ -8,8 +8,7 @@
 }
 
 header h1:before {
-  content: "./";
-  font-size: 24px;
+  content: "";
 }
 
 .header a {
@@ -46,6 +45,7 @@ html, body {
 .footer,
 .push {
   height: 40px;
+  padding: 20px;
 }
 
 
