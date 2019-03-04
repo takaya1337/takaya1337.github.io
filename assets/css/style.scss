@@ -18,6 +18,10 @@ header h1:before {
    color: inherit;
 }
 
+body {
+  position: relative;
+}
+
 footer {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -38,11 +42,6 @@ footer h1 {
                0 0 10px rgba(181, 232, 83, 0.1);
   letter-spacing: -1px;
   -webkit-font-smoothing: antialiased;
-}
-
-footer h1:before {
-  content: "./ ";
-  font-size: 24px;
 }
 
 footer h2 {
