@@ -8,11 +8,10 @@
 }
 
 header h1:before {
-  content: "   ";
+  content: "";
 }
-
-.header a {
-  text-decoration: none;
+header h1 {
+  margin: 0 0 0 -50px;
 }
 
 #main_content a:link,
