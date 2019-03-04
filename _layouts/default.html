@@ -10,10 +10,10 @@
   </head>
 
   <body>
-
+    <div class="wrapper">
     <header>
       <div class="container">
-        <center><a href = "http://takaya1337.github.io" style="text-decoration:none;"><h1>{{ site.title | default: site.github.repository_name }}</h1></a></center>
+        <center><a href = "http://takaya1337.github.io" style="text-decoration:none;"><h1>Takaya's Greatest Hits</h1></a></center>
         <center><h2>{{ site.description | default: site.github.project_tagline }}</h2></center>
       </div>
     </header>
@@ -22,12 +22,14 @@
       <section id="main_content">
         {{ content }}
       </section>
+     </div>
+      <div class="push"></div>
     </div>
     
-    <footer>
+    <footer class="footer">
       <div class="container">
-        <center><a href = "http://takaya1337.github.io" style="text-decoration:none;"><h2>{{ site.title | default: site.github.repository_name }}</h2></a></center>
-      </div  
+        <center><a href = "http://takaya1337.github.io" style="text-decoration:none;"><h2>Back to home</h2></a></center>
+      </div>  
     </footer>
 
     {% if site.google_analytics %}
