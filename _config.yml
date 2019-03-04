@@ -1,3 +1,5 @@
 name: Takaya's HTB Write-Ups
 markdown: kramdown
 permalink: /write-ups/:year/:month/:day/:title
+
+theme: jekyll-theme-hacker
