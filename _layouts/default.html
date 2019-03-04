@@ -10,7 +10,6 @@
   </head>
 
   <body>
-    <div class="wrapper">
     <header>
       <div class="container">
         <a href = "http://takaya1337.github.io" style="text-decoration:none;"><h1>{{ site.title | default: site.github.repository_name }}</h1></a>
@@ -23,14 +22,6 @@
         {{ content }}
       </section>
      </div>
-      <div class="push"></div>
-    </div>
-    
-    <footer class="footer">
-      <div class="container">
-        <center><a href = "http://takaya1337.github.io" style="text-decoration:none;"><h2>Back to home</h2></a></center>
-      </div>  
-    </footer>
 
     {% if site.google_analytics %}
       <script>
