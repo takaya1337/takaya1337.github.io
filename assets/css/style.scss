@@ -12,6 +12,8 @@ header h1:before {
   font-size: 24px;
 }
 
-a:link {
-   color:inherit;
+#home a:link,
+#home a:visited,
+#home a:hover {
+   color: inherit;
 }
