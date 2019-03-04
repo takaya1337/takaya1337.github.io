@@ -45,14 +45,15 @@ ul.posts li {
 }
 
 .home {
-    h1 {
-        font-size: 4em;
-        font-family: 'Roboto', sans-serif;
-        color: #ffffff;
-    }
-    p {
-        font-size: 1.5em;
-        line-height: 1.4em;
-        color: #ffffff;
-    }
+
+}
+h1.home {
+    font-size: 4em;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+p.home {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #ffffff;
 }
