@@ -12,60 +12,6 @@ header h1:before {
   font-size: 24px;
 }
 
-#header {
-  width: 100%;
-  -webkit-font-smoothing: antialiased;
-}
-section img {
-  max-width: 100%
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $header;
-  letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
-}
-
-#header h1 {
-  font-size: 30px;
-}
-
-#header h2 {
-  font-size: 24px;
-}
-
-#header h3 {
-  font-size: 18px;
-}
-
-#header h4 {
-  font-size: 14px;
-}
-
-#header h5 {
-  font-size: 12px;
-  text-transform: uppercase;
-  margin: 0 0 5px 0;
-}
-
-#header h6 {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #999;
-  margin: 0 0 5px 0;
-}
-
-#header a:link,
-#header a:visited,
-#header a:hover {
-   color: inherit;
-   text-decoraton: none;
-}
-
 #main_content a:link,
 #main_content a:visited,
 #main_content a:hover {
