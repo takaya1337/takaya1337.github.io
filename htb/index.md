@@ -5,7 +5,7 @@ title: Conquered Machines
 
 # Disclaimer
 
-Before you began, you should know a few things before you read further. These write-ups are **not the only way** to solve the machine, they're just **my way**. If you found easier or edgier methods, good for you. If you feel the need to inform me, contact me by e-mail. 
+You should know a few things before you read further. These write-ups are **not the only way** to solve the machine, they're just **my way**. I created the write-ups to explain how I think, and how I arrive at a solution, and I'm going to try real hard to explain the "why". If you found easier, more complicated, or even edgier methods, good for you. If you feel the need to inform me, contact me by e-mail. 
 You may share my write-ups, you don't have to include my name(s) in written forms but at least have the courtesy to whisper them to your friends for credits.
 <br>
 
