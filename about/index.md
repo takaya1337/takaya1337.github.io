@@ -7,8 +7,8 @@ layout: default
 
 * What's this all about?
 
-It's my HTB write-up collection.
-
+It's my HTB write-up collection.&nbsp; 
+&nbsp;
 
 * Who are you?
 
