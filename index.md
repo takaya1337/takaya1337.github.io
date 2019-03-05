@@ -16,7 +16,7 @@ Enjoy yourself.
 
 * ### [About](https://takaya1337.github.io/about)
 * ### [HTB Saga](https://takaya1337.github.io/htb)
-* ### [Other](https://takaya1337.github.io/others)
+* ### [Others](https://takaya1337.github.io/others)
 
 
 
