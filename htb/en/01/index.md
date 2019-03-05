@@ -5,22 +5,20 @@ layout: default
 
 # Access
 <br>
-<br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/en/01/assets/access.png">
 </p>
 <br>
-<br>
 
 #### OS    : Windows
 #### IP    : 10.10.10.98
 #### Maker : egre55
-<br>
-<br>
-<br>
-<br>
 * * *
+<br>
+<br>
+<br>
+<br>
 
 ## User
 <br>
