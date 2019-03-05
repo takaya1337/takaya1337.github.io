@@ -4,8 +4,8 @@ title: Conquered Machines
 ---
 
 # Conquered Machines
-<br><br>
-<br><br>
+<br>
+<br>
 
 |       English      |     Indonesian    |
 |:-------------------|:------------------|
