@@ -12,10 +12,11 @@ You may share my write-ups, you don't have to include my name(s) in written form
 So that's it, have a good time.
 <br>
 
-> Special notes for you "special snowflakes", by my experience I have witnessed firsthand your tendency to ask questions which a few keyboard clicks of Google search can answer easily. If you really have to ask, I'll be more than happy to help. But remember this, when you ask a question (especially a technical one) you're dealing with a human in the other end, not a search engine. You can watch this YouTube video to further understand what I mean: **__[LiveOverflow's Guide to Ask Questions](https://www.youtube.com/watch?v=53zkBvL4ZB4)__**. So, think before you type.
+> Special notes for you "special snowflakes", by my experience I have witnessed firsthand your tendency to ask questions which a few keyboard clicks of Google search can answer easily. If you really have to ask, I'll be more than happy to help. But remember this, when you ask a question (especially a technical one) you're dealing with a human in the other end, not a search engine. You can watch this YouTube video to further understand what I mean: **_[LiveOverflow's Guide to Ask Questions](https://www.youtube.com/watch?v=53zkBvL4ZB4)_**. So, think before you type.
+<br>
 <br>
 
-## Conquered Machines
+### Conquered Machines
 
 |       English      |     Indonesian    |
 |:-------------------|:------------------|
