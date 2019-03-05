@@ -37,3 +37,10 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
 ```
 to scan all open ports and services. Here is the output.
 <br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/en/01/assets/access.png">
+</p>
+<br>
+
+We can see that the box has **FTP server, Telnet, and HTTP server (Microsoft IIS 7.5)** made accessible to the internet. The most methodical approach is to try each of them starting from the first, and since an FTP server sometimes allows anonymous login, we can at least check that.
