@@ -27,6 +27,13 @@ layout: default
 <br>
 
 ### NMAP
-This is a sample paragraph. Out father who art in heaven, hallowed be thy name. thy kingdom comes. Thy will be done, on Earth as it is in heaven. Give us today our daily bread and lead us not into tempation, but deliver us from evil.
+This is the first box that I worked on, ever. We all gotta start somewhere. Should I make future HTB write-ups, you can compare them to this one to see how much I improved (and you as well I hope).
+<br>
 
+The first thing to do when given an IP is to do `nmap` on the machine, to see what kind of attack might be used. The magic syntax is:
+
+```
+$ nmap -p 1-65535 -T4 -A -v 10.10.10.98
+```
+to scan all open ports and services. Here is the output.
 <br>
