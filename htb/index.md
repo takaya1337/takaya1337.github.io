@@ -6,6 +6,7 @@ title: Conquered Machines
 # Conquered Machines
 <br><br>
 <br><br>
+
 |       English      |     Indonesian    |
 |:-------------------|:------------------|
 | **[01 - Access](https://takaya1337.github.io/htb/en/01)**   | **[01 - Access](https://takaya1337.github.io/htb/id/01)**       |
