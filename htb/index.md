@@ -9,6 +9,6 @@ title: Conquered Machines
 
 | English           | Indonesian        |
 |:------------------|:------------------|
-| **[01 - Access](https://takaya1337.github.io/htb/01e)**   | **[01 - Access](https://takaya1337.github.io/htb/01i)**       |
-| **[02 - Active](https://takaya1337.github.io/htb/02e)**   | **[02 - Active](https://takaya1337.github.io/htb/02i)**       |
-| **[03 - SecNotes](https://takaya1337.github.io/htb/03e)** | **[03 - SecNotes](https://takaya1337.github.io/htb/03e)**     |
+| **[01 - Access](https://takaya1337.github.io/htb/en/01)**   | **[01 - Access](https://takaya1337.github.io/htb/id/01)**       |
+| **[02 - Active](https://takaya1337.github.io/htb/en/02)**   | **[02 - Active](https://takaya1337.github.io/htb/id/02)**       |
+| **[03 - SecNotes](https://takaya1337.github.io/htb/en/03)** | **[03 - SecNotes](https://takaya1337.github.io/htb/id/03)**     |
