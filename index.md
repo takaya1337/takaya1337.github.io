@@ -18,7 +18,7 @@ Enjoy yourself.
 
 
 
-> By the way, you can pay homage to my team's website at [Petir](https://petircysec.com) for CTF write-ups in Indonesian.
+> By the way, you can pay homage to my team's website at **_[Petir](https://petircysec.com)_** for CTF write-ups in Indonesian.
 
 
 
