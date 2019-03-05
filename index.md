@@ -1,17 +1,15 @@
-<div markdown="1">
 ---
 layout: default
 title: Home
 ---
 
 
-<center>
+
 * ### [Home](https://takaya1337.github.io/)
 * ### [About](https://takaya1337.github.io/about)
 * ### [HTB Saga](https://takaya1337.github.io/htb)
 * ### [Other](https://takaya1337.github.io/others)
-</center>
-</div>
+
 
 
 Does the site look ugly? Good, 'cos I wasn't trying to emphasize my site. It's the content that I want you to look. I made this Jekyll-themed Github Page because the Wordpress my team used are fugly. It doesn't format my write-ups the way I wanted. So here we are.
