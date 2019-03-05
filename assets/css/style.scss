@@ -3,10 +3,6 @@
 
 @import "{{ site.theme }}";
 
-td{
-  text-align: justify;
-}
-
 #downloads {
   display: none;
 }
@@ -14,8 +10,15 @@ td{
 header h1:before {
   content: "";
 }
+
 header h1 {
   margin: 0 0 0 0;
+}
+
+a {
+  color: #63c0f5;
+  text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+  text-decoration: none;
 }
 
 #main_content a:link,
