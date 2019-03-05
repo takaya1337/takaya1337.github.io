@@ -39,7 +39,7 @@ to scan all open ports and services. Here is the output.
 <br>
 
 <p align="center"> 
-<img src="https://takaya1337.github.io/htb/en/01/assets/access.png">
+<img src="https://takaya1337.github.io/htb/en/01/assets/01-nmap.png">
 </p>
 <br>
 
