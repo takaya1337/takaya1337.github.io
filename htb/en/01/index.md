@@ -169,4 +169,39 @@ Password	: **4Cc3ssC0ntr0ller**
 <br>
 <br>
 
-### Telnet
+### Telnet Revisited
+This time we come equipped with the credentials we need.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/15-telnetlogin.png">
+</p>
+
+Nice. This is the first shell access. Notice that the prompt:
+> C:\Users\security>
+
+is the Windows' `cmd.exe`. Telnet gave us the access to it.
+
+The user flag is located in the user's Desktop folder.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/16-user.png">
+</p>
+
+You're already halfway through. We only need **admin** next.
+<br>
+<br>
+<br>
+<br>
+
+* * *
+<br>
+<br>
+<br>
+<br>
+
+# Root
+<br>
+
+### Privileged
