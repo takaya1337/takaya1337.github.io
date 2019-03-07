@@ -19,6 +19,8 @@ layout: default
 <br>
 
 ## Preface
+<br>
+
 If you've played this kind of game before, you can skip this chapter. If you're totally new (like me when I first started working on this box), consider this the tutorial.
 * So what is HTB? Or rather, what should you do with it?
 
