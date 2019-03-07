@@ -24,7 +24,7 @@ If you've played this kind of game before, you can skip this chapter. If you're 
 
 To put it simply, we're given a vulnerable machine's IP address. Since the machine has vulnerabilities, it is our duty to exploit them and retrieve a hash (something like "7f3ff9f556f5f470e41508ff970c794e") and submit it to HTB for scores.
 
-For each machine there are two hashes (or flags), one for **user** and one for **root**. Usually we'll get the user flag when we first gain a shell-access to the machine and the root flag when we gain the highest-privileged access to the machine (or "rooted" the machine).
+For each machine there are two hashes (or flags), one for **user** and one for **root**. Usually we'll get the user flag when we first gain a shell access to the machine and the root flag when we gain the highest-privileged access to the machine (or "rooted" the machine).
 
 Thus, my write-ups will contain two chapters in general: User and Root and each will have its own subchapters depending on what kind of vulnerabilities on the machine.
 
@@ -61,14 +61,14 @@ Simply fire-up the FTP, you can use command-line or GUI to achieve this.
 <img src="https://takaya1337.github.io/htb/assets/01/02-ftp.png">
 </p>
 
-If you take some time in exploring the FTP, you will find two folders: "Backup" and "Engineer". To make everything easier, download everything first.
+If you take some time in exploring the FTP, you will find two folders: "Backup" and "Engineer". Download the files to proceed.
 <br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/01/03-ftperror.png">
 </p>
 
-You can use the ftp-command `get` to download files from an FTP server, but it won't work everytime. If you use the Linux FTP command-line client out of the box, you should get the same error as me, though I haven't tried the GUI or the Windows version of the client.
+You can use the ftp-command `get` to download files from an FTP server, but it won't work flawlessly everytime. If you're using the Linux FTP command-line client out of the box, you should get the same error as me, though I haven't tried the GUI or the Windows version of the client.
 
 A quick search shows that the file is "not transferred correctly" because the way FTP transfer files, **ASCII mode** and **Binary mode**.
 
@@ -88,8 +88,8 @@ Or if you want to use `wget`, of course you can.
 $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 ```
 > the `--no-passive-ftp` argument disables the use of passive FTP transfer mode (it has something to do about firewall and stuff because sometimes the transfer doesn't work using the passive mode) and the `-r` argument means that we want to download the files recursively. 
-
-Note that the default depth of `-r` is 5, so you have to change this as needed if you want to use it later in real life.
+> 
+> Note that the default depth of `-r` is 5, so you have to change this as needed if you want to use it later in real life.
 <br>
 
 <p align="center"> 
@@ -156,6 +156,7 @@ Right on! There's the credential for Telnet.
 <br>
 
 Username	: **security**
+
 Password	: **4Cc3ssC0ntr0ller**
 <br>
 <br>
