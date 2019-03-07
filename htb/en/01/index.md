@@ -178,8 +178,9 @@ This time we come equipped with the credentials we need.
 </p>
 
 Nice. This is the first shell access. Notice that the prompt:
-> C:\Users\security>
-
+```
+ C:\Users\security>
+```
 is the Windows' `cmd.exe`. Telnet gave us the access to it.
 
 The user flag is located in the user's Desktop folder.
