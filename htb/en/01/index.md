@@ -29,6 +29,11 @@ For each machine there are two hashes (or flags), one for **user** and one for *
 Thus, my write-ups will contain two chapters in general: User and Root and each will have its own subchapters depending on what kind of vulnerabilities on the machine.
 
 That's it. That's what it's all about.
+<br>
+<br>
+<br>
+<br>
+
 * * *
 <br>
 <br>
