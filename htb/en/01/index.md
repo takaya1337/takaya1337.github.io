@@ -205,4 +205,43 @@ You're already halfway through. We only need **admin** next.
 # Root
 <br>
 
-### Privileged
+### Enumeration
+I strongly advise you to use Windows' `cmd.exe` or switch to Windows' version of Telnet for this part. I was stuck for hours because my Telnet doesn't give a proper output for my commands.
+
+As I was totally new in this game, Google was my best friend. I looked for basic Windows enumeration and I found **[this](https://exploitedbunker.com/articles/pentest-cheatsheet/)**.
+
+After I tried some of the commands, I found something interesting.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/17-cmdkey.png">
+</p>
+
+Looks like we know what to do next.
+<br>
+<br>
+
+### Run-as Who?
+Doing a simple search on how to exploit `cmdkey`'s saved credentials, more than once I read the word `runas`. So I searched harder until I found a nice **[page](https://www.maketecheasier.com/standard-users-run-program-admin-rights/)** with a good explanation about the topic.
+
+The idea is that the users need to save their credentials first before they can be accessed via `runas`. Our previous enumeration with `cmdkey /list` showed that the administrator did just that.
+
+When I said you should do this part in Windows, it was because I did this in Linux, and somehow the Telnet doesn't give me the proper output I needed to see what's actually going on with my commands. 
+
+At that time, I didn't care much about anything except getting my root flag, so I got a workaround for it. I `runas`ed a command to copy the flag where **security** can read it (of course I deleted the file and reset the machine after, lol).
+```
+runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
+```
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/18-runas.png">
+</p>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/19-root.png">
+</p>
+
+And of course it worked. Congratulations, you have read my first ever write-up.
+
+If you want to do something more, you can try to get real access as the Administrator instead of just getting the root flag.
