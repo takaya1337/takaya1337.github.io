@@ -12,7 +12,6 @@ layout: default
 #### OS            : Windows
 #### IP            : 10.10.10.98
 #### Maker         : egre55
-#### Difficulty    : Easy
 * * *
 <br>
 <br>
