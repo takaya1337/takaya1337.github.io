@@ -9,10 +9,10 @@ layout: default
 <img src="https://takaya1337.github.io/htb/assets/01/access.png">
 </p>
 
-#### OS         : Windows
-#### IP         : 10.10.10.98
-#### Maker      : egre55
-#### Difficulty : Easy
+#### OS            : Windows
+#### IP            : 10.10.10.98
+#### Maker         : egre55
+#### Difficulty    : Easy
 * * *
 <br>
 <br>
