@@ -227,4 +227,45 @@ Dalam setiap _pentest_/_heking_/mesin HTB, ada tahap dimana kita harus mencari i
 
 Singkatnya kita menggali lebih dalam tentang apa saja yang dijalankan komputer dan apa saja yang bisa diakses. Sebagai panduan awal, anda bisa melihat apa yang kira-kira dapat dilakukan saat pertama mendapatkan shell dari link **[berikut](https://exploitedbunker.com/articles/pentest-cheatsheet/)**.
 
+Setelah mencoba-coba beberapa command dari link diatas, saya menemukan sesuatu yang menarik.
+<br>
 
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/17-cmdkey.png">
+</p>
+
+Langkah berikutnya akan semakin menarik.
+<br>
+<br>
+
+### Run-as Who?
+Apabila anda memiliki semangat nasionalis pantang menyerah, anda pasti sudah menemukan [artikel](https://www.maketecheasier.com/standard-users-run-program-admin-rights/) yang menjelaskan bahwa credential yang disimpan dan terlihat melalui `cmdkey` bisa dieksploit dengan sebuah command bernama `runas`.
+
+Pada dasarnya, `runas` akan menjalankan command sebagai user yang ditentukan (mirip seperti `su` di Linux). Biasanya, untuk memudahkan seseorang agar tidak perlu mengetik password tiap kali `runas` dijalankan, seseorang akan menyimpan credential mereka layaknya anda mengisi kotak _remember me_ di situs-situs online saat login.
+
+Efeknya adalah, `runas` bisa dipakai siapa saja untuk menjalankan command sebagai user tersebut. Dalam kasus ini, user tersebut kebetulan adalah **Administrator**. Langsung saja kita eksekusi.
+
+Saya lupa mengingatkan anda. Jika anda ingin mengerjakan box yang sama, alangkah lebih baik bila tahap ini dikerjakan di Windows. Saya mengerjakan semua di Linux dan ternyata _input/output_ dari shell yang digunakan tidak sejelas Windows dalam memberikan informasi (seperti _error message_ dan sejenisnya).
+
+Pada waktu saya pertama mengerjakan dan karena ini merupakan box pertama saya, saya tidak peduli dengan _reliable access_ dan hanya mementingkan root flag. Jadi saya tidak berpikir banyak dan langsung melakukan apa yang terpikir di benak saya saat itu (haha).
+```
+runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
+```
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/18-runas.png">
+</p>
+
+Command tersebut akan menulis isi dari **root.txt** (`type` mirip seperti `cat` di Linux) ke tempat dimana user **security** bisa membaca.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/19-root.png">
+</p>
+
+Dan akhirnya selesai :D
+
+Box ini merupakan box pertama saya dalam HTB. Meskipun tingkat kesulitannya rendah (easy), box ini memberikan banyak pelajaran untuk saya. Meskipun anda banyak mendengar ini-itu tentang eksploit yang ada, sebelum anda mengerjakan sendiri anda tidak akan benar-benar mengerti.
+
+Silahkan ditunggu untuk write-up selanjutnya.
