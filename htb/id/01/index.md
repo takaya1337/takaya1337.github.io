@@ -160,4 +160,5 @@ Sejauh ini kita memiliki dua file dari dua folder berbeda:
 
 File pertama merupakan sebuah database untuk **Microsoft Access** dan file kedua adalah sebuah zip yang dilindungi _password_.
 
-Akan sangat sulit untuk mencoba mem-_brute-force_ _password_ tersebut karena kita tidak memiliki petunjuk sama sekali tentang kriteria _password_nya. Oleh karena itu, lebih logis jika kita melihat isi dari file pertama terlebih dahulu.
+Akan sangat sulit untuk mencoba _brute-force_ pada password tersebut karena kita tidak memiliki petunjuk sama sekali tentang kriteria passwordnya. Oleh karena itu, lebih logis jika kita melihat isi dari file pertama terlebih dahulu.
+
