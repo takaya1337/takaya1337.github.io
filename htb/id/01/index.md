@@ -161,4 +161,42 @@ Sejauh ini kita memiliki dua file dari dua folder berbeda:
 File pertama merupakan sebuah database untuk **Microsoft Access** dan file kedua adalah sebuah zip yang dilindungi _password_.
 
 Akan sangat sulit untuk mencoba _brute-force_ pada password tersebut karena kita tidak memiliki petunjuk sama sekali tentang kriteria passwordnya. Oleh karena itu, lebih logis jika kita melihat isi dari file pertama terlebih dahulu.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/11-access.png">
+</p>
+
+Jika anda jeli maka anda akan mendapatkan sebuah tabel yang cukup mencurigakan. Dalam kolom _username_ terdapat nama **engineer** dan di kolom _password_ terlihat, ya, password: **access4u@security**.
+
+Mari kita buka zip milik **engineer** tadi.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/12-zipopen.png">
+</p>
+
+Asik. Selanjutnya ada sebuah e-mail Microsoft Outlook yang memberikan informasi untuk tahap berikutnya.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/14-outlookpassword.png">
+</p>
+
+Dalam e-mail tersebut kita mendapatkan sebuah _credential_. Mungkin anda bisa menebak untuk apa?
+<br>
+
+Username       : **security**
+
+Password       : **4Cc3ssC0ntr0ller**
+<br>
+
+### Telnet Revisited
+Kali ini kita bisa masuk :)
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/15-telnetlogin.png">
+</p>
+
 
