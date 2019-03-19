@@ -225,5 +225,6 @@ Mantap, sudah setengah jalan.
 ### Enumeration
 Dalam setiap _pentest_/_heking_/mesin HTB, ada tahap dimana kita harus mencari informasi sebanyak-banyaknya agar lebih memudahkan kita dalam mengambil alih target. Tahap tersebut dapat dilakukan baik sebelum kita memulai (dengan tujuan _information gathering_) atau setelah kita mendapat akses terbatas seperti sekarang ini (dengan tujuan _privilege escalation_). Tahap tersebut disebut **enumeration**.
 
-Singkatnya kita menggali lebih dalam tentang apa saja yang dijalankan komputer dan apa saja yang bisa diakses. Sebagai panduan awal, anda bisa melihat apa saja yang kira-kira harus dilakukan saat pertama mendapatkan shell di link **[berikut](https://exploitedbunker.com/articles/pentest-cheatsheet/)**.
+Singkatnya kita menggali lebih dalam tentang apa saja yang dijalankan komputer dan apa saja yang bisa diakses. Sebagai panduan awal, anda bisa melihat apa yang kira-kira dapat dilakukan saat pertama mendapatkan shell dari link **[berikut](https://exploitedbunker.com/articles/pentest-cheatsheet/)**.
+
 
