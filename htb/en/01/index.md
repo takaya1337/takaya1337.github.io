@@ -24,7 +24,7 @@ layout: default
 If you've played this kind of game before, you can skip this chapter. If you're totally new (like me when I first started working on this box), consider this the tutorial.
 * So what is HTB? Or rather, what should you do with it?
 
-To put it simply, we're given a vulnerable machine's IP address. Since the machine has vulnerabilities, it is our duty to exploit them and retrieve a hash (something like "7f3ff9f556f5f470e41508ff970c794e") and submit it to HTB for scores.
+To put it simply, we're given a vulnerable machine's IP address. Since the machine has vulnerabilities, it is our duty to exploit them and retrieve a hash (something like "7f3ff9f556f5f470e41508ff970c794e") and submit it to HTB for points.
 
 For each machine there are two hashes (or flags), one for **user** and one for **root**. Usually we'll get the user flag when we first gain a shell access to the machine and the root flag when we gain the highest-privileged access to the machine (or "rooted" the machine).
 
