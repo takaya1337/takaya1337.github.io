@@ -8,9 +8,9 @@ title: Conquered Machines
 
 You should know a few things before you read further. 
 
-These write-ups are **not the only way** to solve the machine, they're just **my way**. I created the write-ups to explain how I think, and how I arrive at a solution, and I'm going to try real hard to explain the why. If you found easier, more complicated, or even edgier methods, good for you. If you feel the need to inform me, contact me by e-mail. 
+These write-ups are **not the only way** to solve the machine, they're just **my way**. I created the write-ups to explain how I think, how I arrive at a solution, and I'll try to explain why. If you found easier, more complicated, or even edgier methods, good for you. If you feel the need to inform me, contact me by e-mail. 
 
-You may share my write-ups, you don't have to include my name(s) in written forms but at least have the courtesy to whisper them to your friends for credits.
+You may share my write-ups, you don't have to include my name(s) everywhere but at least you may show the courtesy by not discrediting me completely.
 <br>
 
 So that's it, have a good time.
@@ -32,5 +32,5 @@ So that's it, have a good time.
 
 {::comment}
 | **[12/12/18 - Active](https://takaya1337.github.io/htb/en/02)**   | **[12/12/18 - Active](https://takaya1337.github.io/htb/id/02)**       |
-| **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/en/03)** | **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/id/03)**     |
+| **[16/1218 - SecNotes](https://takaya1337.github.io/htb/en/03)** | **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/id/03)**     |
 {:/comment}

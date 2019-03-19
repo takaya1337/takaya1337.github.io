@@ -21,7 +21,7 @@ layout: default
 ## Pendahuluan
 <br>
 
-Sebelum anda membaca hal-hal teknis, ada baiknya anda membaca sedikit kata pembuka dari saya terlebih dahulu. Seperti anda ketahui, saya membuat write-up dalam dua bahasa, Inggris dan Indonesia. Saya perlu ingatkan di awal bahwa write-up saya tidak akan sama persis antara dua bahasa tersebut karena saya tidak menerjemahkan mentah-mentah melainkan saya _edit_ ulang sesuai dengan pemikiran saya sebagai orang Indonesia.
+Sebelum anda membaca hal-hal teknis, ada baiknya anda membaca sedikit kata pembuka dari saya terlebih dahulu. Seperti anda ketahui, saya membuat write-up dalam dua bahasa, Inggris dan Indonesia. Perlu saya ingatkan di awal bahwa write-up saya tidak akan sama persis antara dua bahasa tersebut karena saya tidak menerjemahkan mentah-mentah melainkan saya _edit_ ulang sesuai dengan pemikiran saya sebagai orang Indonesia.
 * Mengapa saya mau repot-repot membuat write-up dalam dua bahasa?
 
 Anggap saja sebagai bentuk pengabdian kepada bangsa. Saya ingin meningkatkan kemampuan _"heking"_ orang-orang yang ingin belajar tapi belum mampu mengerti write-up kelas atas (yang kebanyakan berbahasa Inggris) agar tidak seperti salah seorang pentester yang cukup dikenal karena "kehebatannya".
@@ -31,13 +31,13 @@ Karena saya bosan main CTF terus dan saya juga berpikir bahwa sudah banyak write
 
 * Bagaimana cara mainnya?
 
-HTB atau _Hack the Box_ adalah sebuah permainan dimana anda bisa memilih beberapa list IP address yang merupakan sebuah mesin yang pasti memiliki kelemahan tertentu.
+HTB atau _Hack the Box_ adalah sebuah permainan dimana anda bisa memilih beberapa list _IP address_ "mesin-mesin" yang pasti memiliki kelemahan tertentu.
 
 Dari kelemahan tersebut, anda harus mendapatkan dua buah hash atau flag seperti "7f3ff9f556f5f470e41508ff970c794e". Ada dua flag dalam tiap mesin, yaitu **user** dan **root**.
 
 Flag user anda dapatkan ketika anda mendapat akses pertama ke mesin dengan _privilege_ seadanya (user biasa). Flag root akan anda dapatkan ketika anda berhasil melakukan _privilege escalation_ (atau EOP dalam bahasa korporat) dimana anda mendapatkan akses sebagai user tertinggi (root atau Administrator).
 
-Secara garis besar, tiap write-up akan saya bagi menjadi dua bab utama: User dan Root, dimana masing-masing akan memiliki penjelasan sendiri yang berbeda sesuai dengan kelemahan yang ada dalam mesin tersebut.
+Secara garis besar, tiap write-up akan saya bagi menjadi dua bab utama: User dan Root, dimana masing-masing bab akan memiliki penjelasan sendiri sesuai dengan kelemahan yang ada dalam mesin tersebut.
 
 Sekian untuk pendahuluan.
 
@@ -45,33 +45,33 @@ Sekian untuk pendahuluan.
 <br>
 
 ### NMAP
-Hal pertama yang perlu dilakukan ketika menemukan sebuah IP adalah meng-`nmap` IP tersebut. Hal ini diperlukan agar kita dapat melihat gambaran mesin secara keseluruhan sehingga dapat menentukan serangan apa yang cocok. Sintaks favorit saya adalah:
+Hal pertama yang perlu dilakukan ketika menemukan sebuah alamat IP adalah meng-`nmap` IP tersebut. Hal ini diperlukan agar kita dapat melihat gambaran mesin secara keseluruhan sehingga dapat menentukan serangan apa yang cocok. Sintaks favorit saya adalah:
 
 ```
 $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
 ```
-Sintaks tersebut akan mengecek semua _port_, melakukan scan dengan _Timing-level_ 4 (**Aggresive** -- artinya mempercepat scan tetapi tidak terlalu cepat sampai hasil scan tidak akurat), dan menggunakan _verbosity-level_ 1 (artinya `nmap` akan sedikit lebih detail dalam memberikan hasil).
+Sintaks tersebut akan memeriksa semua _port_, melakukan _scan_ dengan _Timing-level_ 4 (**Aggresive** -- artinya mempercepat scan tetapi tidak terlalu cepat hingga hasil scan tidak akurat), dan menggunakan _verbosity-level_ 1 (artinya `nmap` akan sedikit lebih detail dalam memberikan hasil).
 <br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/01/01-nmap.png">
 </p>
 
-Kita dapat melihat bahwa mesin tersebut memiliki beberapa _service_ yang terbuka, yaitu: **FTP server, Telnet, dan HTTP server (Microsoft IIS 7.5)**. Mari kita cek yang paling pertama.
+Dapat kita lihat bahwa mesin tersebut memiliki beberapa _service_ yang terbuka, yaitu: **FTP server, Telnet, dan HTTP server (Microsoft IIS 7.5)**. Mari kita cek yang paling pertama.
 <br>
 <br>
 
 ### FTP
 FTP atau _File Transfer Protocol_ adalah sebuah protokol atau **cara** untuk memindahkan file secara online. Anda bisa mencari info lebih lanjut tentang FTP di Internet (seperti perbedaan FTP dan FTPS serta mengapa anda tidak disarankan untuk menggunakan FTP untuk keperluan sehari-hari) karena saya hanya akan membahas yang berhubungan dengan mesin ini saja.
 
-Untuk mengakses FTP anda bisa menggunakan FTP client (bisa CLI maupun GUI).
+Untuk mengakses FTP anda dapat menggunakan FTP client (baik CLI maupun GUI).
 <br>
 
 <p align="center">                                                        
 <img src="https://takaya1337.github.io/htb/assets/01/02-ftp.png">         
 </p>
 
-Setelah anda berhasil masuk, anda harusnya menemukan dua folder yang mencurigakan: "Backup" dan "Engineer". Anda bisa men-download filenya.
+Setelah anda berhasil masuk, anda akan menemukan dua folder yang mencurigakan: "Backup" dan "Engineer". Anda bisa men-download kedua file tersebut.
 <br>
 
 <p align="center"> 
@@ -105,14 +105,14 @@ $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 ```
 > argumen `--no-passive-ftp` akan men-disable Passive mode FTP (singkatnya dalam Passive mode FTP, server tidak membuat koneksi ke client dan file transfer hanya satu arah dari client ke server). Biasanya argumen ini dipakai bila **tidak ada** _client-side firewall_.
 >
-> argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder kita ingin mengambil file sampai ke folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file kedalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
+> argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder di dalam folder, kita akan mengambil file sampai ke dalam folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file ke dalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
 <br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/01/07-wgetway.png">
 </p>
 
-Agar lebih yakin kalau cara FTP dan `wget` berjalan lancar, kita bisa bandingkan file-nya.
+Agar lebih yakin bahwa cara FTP dan `wget` berjalan lancar, kita dapat membandingkan file-nya.
 <br>
 
 <p align="center"> 
@@ -126,16 +126,16 @@ Mantap, file-nya oke. Mari kita cek file tersebut lebih lanjut.
 <img src="https://takaya1337.github.io/htb/assets/01/09-filecheck.png">
 </p>
 
-Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, tidak sulit bagi orang Indonesia untuk mendapat akses ke mesin Windows :)
+Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, tidak sulit bagi orang Indonesia untuk mendapatkan akses ke mesin Windows :)
 
 Tapi sebelumnya mari kita lihat Telnet terlebih dahulu.
 <br>
 <br>
 
 ### Telnet
-Telnet atau _Teletype Network_ adalah sebuah protokol atau **cara** untuk mengakses sebuah _remote machine_. Bila anda familiar dengan SSH, Telnet adalah nenek moyangnya yang sedikit lebih berbahaya. Fungsinya sama seperti SSH, untuk memberikan akses interaktif dengan sebuah mesin lewat internet.
+Telnet atau _Teletype Network_ adalah sebuah protokol atau **cara** untuk mengakses sebuah _remote machine_. Bila anda familiar dengan SSH, Telnet adalah nenek moyangnya yang sedikit lebih berbahaya. Fungsinya sama seperti SSH, yaitu untuk memberikan akses interaktif dengan sebuah mesin lewat internet.
 
-Untuk _connect_ ke Telnet mesin ini, anda dapat menggunakan `telnet` _command_ di Linux.
+Untuk _connect_ ke Telnet mesin ini, anda dapat menggunakan `telnet` command di Linux.
 <br>
 
 <p align="center"> 
@@ -167,7 +167,7 @@ Akan sangat sulit untuk mencoba _brute-force_ pada password tersebut karena kita
 <img src="https://takaya1337.github.io/htb/assets/01/11-access.png">
 </p>
 
-Jika anda jeli maka anda akan mendapatkan sebuah tabel yang cukup mencurigakan. Dalam kolom _username_ terdapat nama **engineer** dan di kolom _password_ terlihat, ya, password: **access4u@security**.
+Jika anda teliti maka anda akan mendapatkan sebuah tabel yang cukup mencurigakan. Dalam kolom **username** terdapat nama **engineer** dan di kolom **password** terlihat, ya, password: **access4u@security**.
 
 Mari kita buka zip milik **engineer** tadi.
 <br>
@@ -183,7 +183,7 @@ Asik. Selanjutnya ada sebuah e-mail Microsoft Outlook yang memberikan informasi 
 <img src="https://takaya1337.github.io/htb/assets/01/14-outlookpassword.png">
 </p>
 
-Dalam e-mail tersebut kita mendapatkan sebuah _credential_. Mungkin anda bisa menebak untuk apa?
+Dalam e-mail tersebut kita mendapatkan sebuah credential. Mungkin anda bisa menebak untuk apa?
 <br>
 
 Username       : **security**
@@ -234,7 +234,7 @@ Setelah mencoba-coba beberapa command dari link diatas, saya menemukan sesuatu y
 <img src="https://takaya1337.github.io/htb/assets/01/17-cmdkey.png">
 </p>
 
-Langkah berikutnya akan semakin menarik.
+Langkah berikutnya akan semakin menyenangkan.
 <br>
 <br>
 
@@ -243,11 +243,11 @@ Apabila anda memiliki semangat nasionalis pantang menyerah, anda pasti sudah men
 
 Pada dasarnya, `runas` akan menjalankan command sebagai user yang ditentukan (mirip seperti `su` di Linux). Biasanya, untuk memudahkan seseorang agar tidak perlu mengetik password tiap kali `runas` dijalankan, seseorang akan menyimpan credential mereka layaknya anda mengisi kotak _remember me_ di situs-situs online saat login.
 
-Efeknya adalah, `runas` bisa dipakai siapa saja untuk menjalankan command sebagai user tersebut. Dalam kasus ini, user tersebut kebetulan adalah **Administrator**. Langsung saja kita eksekusi.
+Efeknya adalah `runas` bisa dipakai siapa saja untuk menjalankan command sebagai user tersebut. Dalam kasus ini, user tersebut kebetulan adalah **Administrator**. Langsung saja kita eksekusi.
 
 Saya lupa mengingatkan anda. Jika anda ingin mengerjakan box yang sama, alangkah lebih baik bila tahap ini dikerjakan di Windows. Saya mengerjakan semua di Linux dan ternyata _input/output_ dari shell yang digunakan tidak sejelas Windows dalam memberikan informasi (seperti _error message_ dan sejenisnya).
 
-Pada waktu saya pertama mengerjakan dan karena ini merupakan box pertama saya, saya tidak peduli dengan _reliable access_ dan hanya mementingkan root flag. Jadi saya tidak berpikir banyak dan langsung melakukan apa yang terpikir di benak saya saat itu (haha).
+Pada kali pertama saya mengerjakan, saya tidak peduli dengan akses yang jauh lebih stabil ketimbang hanya mendapatkan flag, misalnya: root shell; dan hanya mementingkan flag root. Jadi saya tidak berpikir banyak dan langsung melakukan apa yang terpikir di benak saya saat itu (haha).
 ```
 runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
 ```
@@ -266,6 +266,8 @@ Command tersebut akan menulis isi dari **root.txt** (`type` mirip seperti `cat` 
 
 Dan akhirnya selesai :D
 
-Box ini merupakan box pertama saya dalam HTB. Meskipun tingkat kesulitannya rendah (easy), box ini memberikan banyak pelajaran untuk saya. Meskipun anda banyak mendengar ini-itu tentang eksploit yang ada, sebelum anda mengerjakan sendiri anda tidak akan benar-benar mengerti.
+Box ini merupakan box pertama saya dalam HTB. Meskipun tingkat kesulitannya rendah (_easy_), box ini memberikan banyak pelajaran untuk saya. 
 
-Silahkan ditunggu untuk write-up selanjutnya.
+Meskipun anda banyak mendengar ini-itu tentang eksploit yang ada, sebelum anda mengerjakan sendiri anda tidak akan benar-benar mengerti.
+
+Sekian untuk **Access**, silahkan ditunggu write-up selanjutnya.
