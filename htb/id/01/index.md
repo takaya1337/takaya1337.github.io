@@ -200,4 +200,27 @@ Kali ini kita bisa masuk :)
 <img src="https://takaya1337.github.io/htb/assets/01/15-telnetlogin.png">
 </p>
 
+Ini adalah wajah dari _shell_ Windows (atau `cmd.exe`) yang terkoneksi melalui Telnet. Untuk saat ini, kita masuk sebagai user **security** yang memiliki privilege terbatas. Mari kita ambil flag user di **Desktop**.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/01/16-user.png">
+</p>
+
+Mantap, sudah setengah jalan.
+<br>
+<br>
+<br>
+<br>
+
+* * *
+<br>
+<br>
+<br>
+<br>
+
+# Root
+<br>
+
+### Enumeration
 
