@@ -80,9 +80,13 @@ Setelah anda berhasil masuk, anda harusnya menemukan dua folder yang mencurigaka
 
 Anda bisa menggunakan _command-command_ FTP untuk berinteraksi dengan file yang ada di FTP server. Untuk men-download misalnya, anda dapat menggunakan `get`.
 
-Bila anda mendapatkan error seperti gambar diatas, dan anda melakukan sedikit _research_, anda akan tahu bahwa error tersebut disebabkan oleh tipe **file transfer** yang digunakan oleh FTP, yaitu **ASCII mode** dan **Binary mode**.
+Bila anda mendapatkan error seperti gambar diatas dan anda melakukan sedikit _research_, anda akan tahu bahwa error tersebut disebabkan oleh tipe **file transfer** yang digunakan oleh FTP, yaitu **ASCII mode** dan **Binary mode**.
 
-**ASCII mode** akan mengubah _Line Feed_ yang dimiliki file bila transfer dilakukan ke mesin Windows dari Linux atau sebaliknya. Line Feed atau LF adalah sebuah ASCII karakter yang biasa direpresentasikan dengan bentuk "\n" atau yang lebih sering disebut "enter" oleh orang Indonesia. Secara konvensi, Windows dan Linux memiliki line feed yang berbeda, dimana Windows menerapkan CRLF atau _Carriage Return Line Feed_ (Carriage Return akan mengembalikan posisi cursor paling kiri secara horizontal setelah itu di"enter" oleh Line Feed) dan Linux hanya memakai LF saja. ASCII mode akan mengganti CRLF dengan LF dan sebaliknya ketika transfer terjadi antara dua sistem tersebut.
+**ASCII mode** akan mengubah _Line Feed_ yang dimiliki file bila transfer dilakukan ke mesin Windows dari Linux atau sebaliknya. Line Feed atau LF adalah sebuah ASCII karakter yang biasa direpresentasikan dengan bentuk "\n" atau yang lebih sering disebut "enter" oleh orang Indonesia. 
+
+Secara konvensi, Windows dan Linux memiliki Line Feed yang berbeda, dimana Windows menerapkan CRLF atau _Carriage Return Line Feed_: Carriage Return akan mengembalikan posisi cursor paling kiri secara horizontal (bayangkan mesin tik jaman dulu) setelah itu di"enter" oleh Line Feed; dan Linux hanya memakai LF saja.
+
+ASCII mode akan mengganti CRLF dengan LF dan sebaliknya ketika transfer terjadi antara dua sistem tersebut.
 
 **Binary mode** tidak mengubah file sama sekali dan melakukan transfer apa adanya.
 
@@ -101,7 +105,7 @@ $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 ```
 > argumen `--no-passive-ftp` akan men-disable Passive mode FTP (singkatnya dalam Passive mode FTP, server tidak membuat koneksi ke client dan file transfer hanya satu arah dari client ke server). Biasanya argumen ini dipakai bila **tidak ada** _client-side firewall_.
 >
-> argumen -r mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder kita ingin mengambil file sampai ke folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file kedalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
+> argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder kita ingin mengambil file sampai ke folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file kedalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
 <br>
 
 <p align="center"> 
@@ -124,7 +128,7 @@ Mantap, file-nya oke. Mari kita cek file tersebut lebih lanjut.
 
 Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, tidak sulit bagi orang Indonesia untuk mendapat akses ke mesin Windows :)
 
-Tapi sebelumnya mari kita liat Telnet terlebih dahulu.
+Tapi sebelumnya mari kita lihat Telnet terlebih dahulu.
 <br>
 <br>
 
