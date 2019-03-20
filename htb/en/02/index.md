@@ -29,11 +29,11 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.100
 <br>
 
 <p align="center"> 
-<img src="https://takaya1337.github.io/htb/assets/02/01-nmap.png">
+<img src="https://takaya1337.github.io/htb/assets/02/1-nmap.png">
 </p>
 
 <p align="center"> 
-<img src="https://takaya1337.github.io/htb/assets/02/02-nmap.png">
+<img src="https://takaya1337.github.io/htb/assets/02/2-nmap.png">
 </p>
 
 This box has a lot more open ports than the previous one, but you should focus your attention to port 445.
