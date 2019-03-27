@@ -53,7 +53,7 @@ This is why SMB has more attack vectors to offer than FTP, because it interacts 
 
 The good thing is, the exploit mentioned above has nothing to do with a 20-points box. I did mention something about being able to enumerate SMB without credentials or creating **Null Sessions**.
 
-There are many tools to enumerate SMB shares (shared files or resources). One of the best is `[nullinux](https://github.com/m8r0wn/nullinux)`.
+There are many tools to enumerate SMB shares (shared files or resources). One of the best is **[nullinux](https://github.com/m8r0wn/nullinux)**.
 ```
 python3 nullinux.py -a 10.10.10.100
 ```
