@@ -1,7 +1,11 @@
----
+--
 title: Others
 layout: default
 ---
 
-# UNDER MAINTENANCE
-# I still have nothing to add actually, so let it be like this for a while
+# Everything Else
+<br>
+
+|   Handy Documentations    |
+|:--------------------------|
+| **[OpenVPN Configuration the Hard Way (with only one server) [ongoing]](https://takaya1337.github.io/openvpn)**
