@@ -110,6 +110,20 @@ gpp-decrypt [insert the encrypted password here]
 Username    : **active.htb\SVC_TGS**
 
 Password    : **GPPstillStandingStrong2k18**
+<br>
 
-Good enough, there goes the user's share.
-Let's connect.
+Good enough, there goes the user's share. Let's connect.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/07-smbuser.png">
+</p>
+
+The flag is where it should be.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/08-userflag.png">
+</p>
+
+That's the flag.
