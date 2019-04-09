@@ -77,7 +77,7 @@ smbclient //10.10.10.100/Replication/ -I 10.10.10.100
 
 Now that you gained access to a share, you can take your time in exploring the insides and enumerate everything. However, to minimize the scope of your search, you can use this article as a reference: **[Attack Methods for Gaining Domain Admin Rights in Active Directory](https://adsecurity.org/?p=2362)**.
 
-The article mentioned some XML which normally would contains credentials. The box happens to have one.
+The article mentioned some XML files which normally would contain credentials. The box happens to have one.
 <br>
 
 <p align="center"> 
@@ -95,7 +95,7 @@ Let's check the **Groups.xml** file.
 
 The highlighted part is the juiciest bit of this XML file. If you read the article a little bit more, you will find that the **cpassword** tag is actually the user's password (you can even find the username in the file too), encrypted with AES-256 bit.
 
-By itself, the encryption should be enough, but somehow, with reasons unkown, Microsoft released the [encryption key](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be). In other words, the GPP password is ultimately hackable.
+By itself, the encryption should be enough, but somehow, with reasons unkown, Microsoft released the **[encryption key](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be)**. In other words, the GPP password is ultimately hackable.
 
 If you're using Kali Linux, `gpp-decrypt` is already installed by default.
 ```
