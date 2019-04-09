@@ -111,5 +111,4 @@ Username    : **active.htb\SVC_TGS**
 Password    : **GPPstillStandingStrong2k18**
 
 Good enough, there goes the user's share.
-
-
+Let's connect.
