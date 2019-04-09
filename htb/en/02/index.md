@@ -108,6 +108,7 @@ gpp-decrypt [insert the encrypted password here]
 </p>
 
 Username    : **active.htb\SVC_TGS**
+
 Password    : **GPPstillStandingStrong2k18**
 
 Good enough, there goes the user's share.
