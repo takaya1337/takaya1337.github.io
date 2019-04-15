@@ -188,7 +188,7 @@ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS
 <img src="https://takaya1337.github.io/htb/assets/02/11-getuserspn.png">
 </p>
 
-Allright, we got the hash for Administrator. The password is only a `hashcat` away.
+Alright, we got the hash for Administrator. The password is only a `hashcat` away.
 <br>
 <br>
 
