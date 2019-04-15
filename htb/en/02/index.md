@@ -84,7 +84,7 @@ The article mentioned some XML files which normally would contain credentials. T
 <img src="https://takaya1337.github.io/htb/assets/02/04-smbexplore.png">
 </p>
 
-Because the **Replication** share allows read-only access, you can download the file as usual with the `get` command.
+Because the **Replication** share allows you to read files, you can download the file as usual with the `get` command.
 
 Let's check the **Groups.xml** file.
 <br>
@@ -182,6 +182,7 @@ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS
 
 > This will request a TGS (Ticket Granting Service) or The Silver Ticket for the user **SVC_TGS** complete with the password on **ACTIVE.HTB** domain.
 <br>
+<br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/02/11-getuserspn.png">
@@ -209,6 +210,7 @@ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
 ```
 > Basically, we want to crack a hash with the type ID of 13100 with the attack mode of zero, which is **straight** (a simple pick-one-and-try-next-if-fails from a wordlist), we're cracking the file called **tgs** with the wordlist **rockyou.txt**.
 > I hope that will clarify the syntax.
+<br>
 <br>
 
 <p align="center"> 

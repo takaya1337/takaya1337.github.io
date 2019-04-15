@@ -107,6 +107,7 @@ $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 >
 > argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder di dalam folder, kita akan mengambil file sampai ke dalam folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file ke dalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
 <br>
+<br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/01/07-wgetway.png">
