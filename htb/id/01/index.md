@@ -106,6 +106,7 @@ $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 > argumen `--no-passive-ftp` akan men-disable Passive mode FTP (singkatnya dalam Passive mode FTP, server tidak membuat koneksi ke client dan file transfer hanya satu arah dari client ke server). Biasanya argumen ini dipakai bila **tidak ada** _client-side firewall_.
 >
 > argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder di dalam folder, kita akan mengambil file sampai ke dalam folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file ke dalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
+
 <br>
 <br>
 
