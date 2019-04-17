@@ -200,7 +200,7 @@ Before even starting to crack the hash, first we need to know what kind of hash 
 <img src="https://takaya1337.github.io/htb/assets/02/13-hashtype.png">
 </p>
 
-You have to be careful because there are five entries with "Kerberos" in it, but what we actually wanted is **Kerberos 5 AS-REP etype 23** because the DC or Domain Controller returns TGS-REP (reply) via the KDC or Key Distribution Center to us. The **etype 23** means that it's using **encryption type 23** which is the code for **rc4-hmac (Rivest Cipher 4)**, which, I quote from this **[website](https://web.mit.edu/kerberos/kfw-4.1/kfw-4.1/kfw-4.1-help/html/encryption_types.htm)**, "is a symmetric stream cipher that can use multiple key sizes".
+You have to be careful because there are five entries with "Kerberos" in it, but what we actually wanted is **Kerberos 5 TGS-REP etype 23** because the DC or Domain Controller returns TGS-REP (reply) via the KDC or Key Distribution Center to us. The **etype 23** means that it's using **encryption type 23** which is the code for **rc4-hmac (Rivest Cipher 4)**, which, I quote from this **[website](https://web.mit.edu/kerberos/kfw-4.1/kfw-4.1/kfw-4.1-help/html/encryption_types.htm)**, "is a symmetric stream cipher that can use multiple key sizes".
 
 In other words, just use the one with the ID of 13100.
 
