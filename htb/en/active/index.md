@@ -13,7 +13,6 @@ layout: default
 #### IP            : 10.10.10.100
 #### Maker         : eks & mrb3n
 * * *
-<br>
 
 ### A Special Note
 To tell you the truth, I didn't finish the rooting process in time, but because the box is making me crazy, I decided to do something I never should've done, I checked another **[write-up](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)**.
