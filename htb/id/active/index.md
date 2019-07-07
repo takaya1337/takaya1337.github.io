@@ -14,6 +14,15 @@ layout: default
 #### Maker         : eks & mrb3n
 * * *
 <br>
+
+### A Special Note
+Karena beberapa hal, saya tidak dapat menyelesaikan _privilege escalation_ sebelum mesinnya di-_retired_. Karena saya sangat penasaran, saya mencoba melihat **[write-up orang lain](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)** dan mencoba mengerti tahap-tahapnya.
+
+Saya tidak suka mengambil properti intelektual orang lain tanpa memberikan sumber yang jelas, dan saya harap anda dapat melakukan hal yang sama di kemudian hari.
+
+Selamat menikmati.
+* * *
+<br>
 <br>
 <br>
 <br>
@@ -138,3 +147,76 @@ Petunjuk untuk tahap ini ada di dalam nama User.
 <br>
 
 ### About Kerberoast
+Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artikel menarik](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)**(saat ini situs tersebut tidak dapat diakses, anda dapat membaca artikel **[berikut](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** sebagai referensi tambahan) tentang **Kerberoast**.
+
+Menurut sebuah **[dokumen](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** dari Derbycon 2014 yang saya temui, **Kerberoast** adalah sebuah serangan terhadap sistem tiket Kerberos. Service yang terdaftar dalam domain Active Directory tersebut memiliki SPN atau _Service Principal Name_, sebuah ID unik yang nantinya akan diasosiasikan dengan sebuah "akun" untuk service tersebut, sehingga ketika user ingin mengakses service tersebut, ia hanya diberikan tiket (perlu diingat bahwa Kerberos berbasis tiket) yang mengandung credential (dalam bentuk **NTLM hash**).
+
+Untuk melancarkan serangan tersebut, anda perlu memiliki sebuah akun yang valid agar bisa me-_request_ tiket karena service hanya dapat diakses oleh user yang terdaftar. Disini akun user berperan.
+
+Dari referensi write-up yang saya letakkan diatas, saya juga menggunakan **[impacket](https://github.com/SecureAuthCorp/impacket)**, serangkaian _networking tool_ yang memiliki banyak fitur, salah satunya adalah fitur untuk melakukan **request TGS**.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/10-impacket.png">
+</p>
+
+```
+$ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS:GPPstillStandingStrong2k18
+```
+> command tersebut akan meminta _Silver Ticket_ atau _Ticket Granting Service_ (sebuah tiket yang diberikan ketika user ingin mengakses suatu service) ke _Domain Controller_ 10.10.10.100 dengan credential user **SVC_TGS**.
+
+<br>
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/11-getuserspn.png">
+</p>
+
+Langkah terakhir adalah mendapatkan password Administrator dari hash tersebut.
+<br>
+<br>
+
+### Crack!
+Untuk meng-_crack_ hash tersebut, anda dapat menggunakan `hashcat`. Tetapi sebelum itu anda harus mengetahui tipe hash yang ingin dicrack.
+Informasi tersebut bisa didapat dari situs **[hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes)** dengan mencari `krb5tgs$23`, sesuai dengan _response_ yang diberikan request TGS tadi.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/13-hashtype.png">
+</p>
+
+Biasanya, _wordlist_ yang digunakan untuk _bruteforce_ atau crack adalah **[rockyou.txt](https://github.com/praetorian-inc/Hob0Rules/blob/master/wordlists/rockyou.txt.gz)**.
+
+Setelah semuanya siap, anda dapat menyalakan `hashcat`.
+```
+$ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
+```
+> `-m` adalah tipe hash yang didapat dari situs diatas, `-a 0` adalah _attack mode_ yang digunakan, yaitu **straight** (mencoba _entry_ dari wordlist satu-satu), `tgs` adalah nama file yang berisi response, dan `/usr/share/wordlist/rockyou.txt` adalah wordlist yang digunakan.
+
+<br>
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/14-hashcat.png">
+</p>
+
+Anda dapat melihat password Administrator :)
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/15-rootflag.png">
+</p>
+
+Jika anda ingin mendapatkan _shell_ ketimbang menggunakan SMB:
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/02/16-trueshell.png">
+</p>
+
+
+Saya sempat absen beberapa bulan dikarenakan pekerjaan (_underpaid_ a.k.a _intern_) dan baru bisa main HTB lagi karena akhir-akhir ini sedang sedikit senggang.
+
+Saya masih menyimpan beberapa write-up yang telah selesai dan tinggal dipindahkan ke _markdown_, tapi butuh waktu karena saya ingin membuat konten yang 'relatif' berkualitas.
+
+Akhir kata, mohon bersabar jika anda menunggu write-up berikutnya :)

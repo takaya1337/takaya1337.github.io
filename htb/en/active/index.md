@@ -13,6 +13,7 @@ layout: default
 #### IP            : 10.10.10.100
 #### Maker         : eks & mrb3n
 * * *
+<br>
 
 ### A Special Note
 To tell you the truth, I didn't finish the rooting process in time, but because the box is making me crazy, I decided to do something I never should've done, I checked another **[write-up](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)**.
@@ -161,11 +162,9 @@ If you read the explanation from the link above, you should already made a conne
 <br>
 
 ### About Kerberoast
-From **[a website](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)** I stumbled upon while searching for **SVC_TGS**, I found that there are different types of attacks on a Kerberos service and the most famous is of course **Kerberoast**.
+From **[a website](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)**(currently down, read **[this](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** website for another reference) I stumbled upon while searching for **SVC_TGS**, I found that there are different types of attacks on a Kerberos service and the most famous is of course **Kerberoast**.
 
-According to a very valid **[source](https://files.sans.org/summit/hackfest2014/PDFs/Kicking%20the%20Guard%20Dog%20of%20Hades%20-%20Attacking%20Microsoft%20Kerberos%20%20-%20Tim%20Medin%281%29.pdf)** from Derbycon 2014, Kerberoast is an attack on the ticketing service used in Windows' implementation of Kerberos. However, to use this method one must already have initial access to the system, that is a (normal) user account registered on the Active Directory or AD complete with the password, which we coincidentally aqcuired in the previous step.
-
-Explaining how this works is very tricky because the rabbit hole goes very deep when it comes to "Windows' implementation of [anything]" so I'm going to oversimplify things a bit.
+According to a very valid **[source](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** from Derbycon 2014, Kerberoast is an attack on the ticketing service used in Windows' implementation of Kerberos. However, to use this method one must already have initial access to the system, that is a (normal) user account registered on the Active Directory or AD complete with the password, which we coincidentally aqcuired in the previous step.
 
 The whole point of this exploit is to crack another user's password and enable further enumeration which could lead to the Golden Ticket exploit with the ultimate goal to gain access as the Enterprise Admin, which means you get to control the whole AD forest.
 
