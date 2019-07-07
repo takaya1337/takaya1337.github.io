@@ -94,9 +94,9 @@ Anda dapat mengambil file tersebut dengan menggunakan _command_ `get` sama seper
 <img src="https://takaya1337.github.io/htb/assets/02/05-groupxml.png">
 </p>
 
-Apabila anda membaca lebih lanjut, anda akan mengerti betapa vitalnya **cpassword** dalam mesin ini. Tag tersebut adalah credential yang dienkripsi oleh AES-256 bit yang seharusnya "relatif" aman, akan tetapi Microsoft membagikan **[kunci enkripsi](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be)** dalam halaman dokumentasinya.
+Apabila anda membaca artikel tersebut, anda akan mengerti betapa vitalnya **cpassword** dalam mesin ini. Tag tersebut adalah credential yang dienkripsi oleh AES-256 bit yang seharusnya "relatif" aman, namun menjadi mudah untuk dipecahkan karena Microsoft membagikan **[kunci enkripsi](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be)** dalam situs dokumentasinya.
 
-Jika anda menggunakan Kali Linux seperti _heker-heker_ normal pada umumnya, `gpp-decrypt` telah tersedia ketika anda selesai menginstall.
+Jika anda menggunakan Kali Linux seperti _heker-heker_ normal pada umumnya, `gpp-decrypt` telah tersedia dari awal.
 ```
 $ gpp-decrypt [password yang dienkripsi]
 ```
@@ -115,7 +115,7 @@ Password    : **GPPstillStandingStrong2k18**
 <img src="https://takaya1337.github.io/htb/assets/02/07-smbuser.png">
 </p>
 
-Tinggal ambil flagnya :)
+Dengan credential diatas, flag user sudah di tangan.
 <br>
 
 <p align="center"> 
