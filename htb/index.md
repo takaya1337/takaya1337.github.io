@@ -8,17 +8,20 @@ title: Conquered Machines
 
 You should know a few things before you read further. 
 
-These write-ups are **not the only way** to solve the machine, they're just **my way**. I created the write-ups to explain how I think, how I arrive at a solution, and I'll try to explain why. If you found easier, more complicated, or even edgier methods, good for you. If you feel the need to inform me, contact me by e-mail. 
+These write-ups are **not the only way** to solve the machine, they're just **my way**. I created the write-ups to explain how I think, how I arrive at a solution, and I'll try to explain why. If you found easier, more complicated, or even edgier methods, good for you.
 
-You may share my write-ups, you don't have to include my name(s) everywhere but at least you may show the courtesy by not discrediting me completely.
+You may share my write-ups, you don't have to include my name(s) everywhere but at least you can try to show some courtesy by not discrediting me completely.
+
+If you have a question or two, hit me up on Telegram **@takaya1337**.
 <br>
 
 So that's it, have a good time.
 <br>
 
-> Special notes for you "special snowflakes", by my experience I have witnessed firsthand your tendency to ask questions which a few keyboard clicks of Google search can answer easily. If you really have to ask, I'll be more than happy to help. 
+> Special notes for you **special snowflakes**, by my experience have I witnessed firsthand your tendency to ask questions which a few keyboard clicks of Google search can answer easily. And I mean **easily**.
 >
 > But remember this, when you ask a question (especially a technical one) you're dealing with a human in the other end, not a search engine. You can watch this YouTube video to further understand what I mean: **_[LiveOverflow's Guide to Ask Questions](https://www.youtube.com/watch?v=53zkBvL4ZB4)_**. So, think before you type.
+> And one more thing, before you ask something like "I would like to start learning this, but I don't know where to start, where can I find the right material for it?", here's my answer: **the Internet is not a small place. Get your questions right, and the answers will most likely be the same.**
 
 <br>
 <br>

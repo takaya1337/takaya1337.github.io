@@ -179,7 +179,7 @@ This time we come equipped with the credentials we need.
 
 Nice. This is the first shell access. Notice that the prompt:
 ```
- C:\Users\security>
+C:\Users\security>
 ```
 is the Windows' `cmd.exe`. Telnet gave us the access to it.
 
@@ -230,7 +230,7 @@ When I said you should do this part in Windows, it was because I did this in Lin
 
 At that time, I didn't care much about anything except getting my root flag, so I got a workaround for it. I `runas`ed a command to copy the flag where **security** can read it (of course I deleted the file and reset the machine after, lol).
 ```
-runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
+C:\Users\security> runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
 ```
 <br>
 

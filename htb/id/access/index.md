@@ -251,7 +251,7 @@ Saya lupa mengingatkan anda. Jika anda ingin mengerjakan box yang sama, alangkah
 
 Pada kali pertama saya mengerjakan, saya tidak peduli dengan akses yang jauh lebih stabil ketimbang hanya mendapatkan flag, misalnya: root shell; dan hanya mementingkan flag root. Jadi saya tidak berpikir banyak dan langsung melakukan apa yang terpikir di benak saya saat itu (haha).
 ```
-runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
+C:\Users\security> runas /user:ACCESS\Administrator /savecred "cmd.exe /c type c:\users\administrator\desktop\root.txt > c:\users\security\something"
 ```
 <br>
 

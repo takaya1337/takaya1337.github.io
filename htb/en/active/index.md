@@ -18,6 +18,20 @@ layout: default
 <br>
 <br>
 
+### A Special Note
+To tell you the truth, I didn't finish the rooting process in time, but because the box is making me crazy, I decided to do something I never should've done, I checked another **[write-up](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)**.
+
+Of course I'm still trying to absorb the matter completely, but still the experience is never the same if you're not doing it yourself. Even to me, learning a little bit about the Active Directory and Kerberos is very hard even with my learning pace because I didn't experience everything first-hand.
+
+So my advice is this, unless you're really really really stuck, keep trying on your own. Clues are fine, but a straight answer never is. 
+
+With that being said, enjoy my writeup.
+* * *
+<br>
+<br>
+<br>
+<br>
+
 ## User
 <br>
 
@@ -55,7 +69,7 @@ The good thing is, the exploit mentioned above has nothing to do with this box. 
 
 There are many tools to enumerate SMB shares (shared files or resources). One of the best is **[nullinux](https://github.com/m8r0wn/nullinux)**.
 ```
-python3 nullinux.py -a 10.10.10.100
+$ python3 nullinux.py -a 10.10.10.100
 ```
 <br>
 
@@ -67,7 +81,7 @@ From this tool, we can see that there is a share that allows a null session (sim
 
 You can connect to the share with `smbclient`.
 ```
-smbclient //10.10.10.100/Replication/ -I 10.10.10.100
+$ smbclient //10.10.10.100/Replication/ -I 10.10.10.100
 ```
 <br>
 
@@ -99,7 +113,7 @@ By itself, the encryption should be enough, but somehow, with reasons unkown, Mi
 
 If you're using Kali Linux, `gpp-decrypt` is already installed by default.
 ```
-gpp-decrypt [insert the encrypted password here]
+$ gpp-decrypt [insert the encrypted password here]
 ```
 <br>
 
@@ -177,7 +191,7 @@ I used **[impacket](https://github.com/SecureAuthCorp/impacket)** for this.
 
 It even has its own feature to request a TGS! Let's use it then.
 ```
-impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS:GPPstillStandingStrong2k18
+$ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_TGS:GPPstillStandingStrong2k18
 ```
 > This will request a TGS (Ticket Granting Service) or The Silver Ticket for the user **SVC_TGS** complete with the password on **ACTIVE.HTB** domain.
 
@@ -206,7 +220,7 @@ In other words, just use the one with the ID of 13100.
 
 With **[rockyou.txt](https://github.com/praetorian-inc/Hob0Rules/blob/master/wordlists/rockyou.txt.gz)** we're set to crack this hash.
 ```
-hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
+$ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
 ```
 > Basically, we want to crack a hash with the type ID of 13100 with the attack mode of zero, which is **straight** (a simple pick-one-and-try-next-if-fails from a wordlist), we're cracking the file called **tgs** with the wordlist **rockyou.txt**.
 > I hope that will clarify the syntax.
@@ -235,12 +249,3 @@ Active Directory is quite fun, right? Oh, and a little bonus if you want to get 
 That should end this write-up. Hope you're having fun reading it as much as I'm having a hard time researching it :D
 <br>
 <br>
-
-### A Special Note
-To tell you the truth, I didn't finish the rooting process in time, but because the box is making me crazy, I decided to do something I never should've done, I checked another **[write-up](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)**.
-
-Of course I'm still trying to absorb the matter completely, but still the experience is never the same if you're not doing it yourself. Even to me, learning a little bit about the Active Directory and Kerberos is very hard even with my (supposedly) fast learning pace because I didn't experience everything first-hand.
-
-So my advice is this, unless you're really really really stuck, keep trying on your own. Clues are fine, but a straight answer never is. 
-
-Good luck.
