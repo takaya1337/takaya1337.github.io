@@ -149,7 +149,7 @@ Petunjuk untuk tahap ini ada di dalam nama User.
 ### About Kerberoast
 Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artikel menarik](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)** (saat ini situs tersebut tidak dapat diakses, anda dapat membaca artikel **[berikut](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** sebagai referensi tambahan) tentang **Kerberoast**.
 
-Menurut sebuah **[dokumen](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** dari Derbycon 2014 yang saya temui, **Kerberoast** adalah sebuah serangan terhadap sistem tiket Kerberos. Service yang terdaftar dalam domain Active Directory tersebut memiliki SPN atau _Service Principal Name_, sebuah ID unik yang nantinya akan diasosiasikan dengan sebuah "akun" untuk service tersebut, sehingga ketika user ingin mengakses service tersebut, ia hanya diberikan tiket (perlu diingat bahwa Kerberos berbasis tiket) yang mengandung credential (dalam bentuk **NTLM hash**).
+Menurut sebuah **[dokumen](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** dari Derbycon 2014 yang saya temui, **Kerberoast** adalah sebuah serangan terhadap sistem tiket Kerberos. Service yang terdaftar dalam domain Active Directory tersebut memiliki SPN atau _Service Principal Name_, sebuah ID unik yang nantinya akan diasosiasikan dengan sebuah "akun" untuk service tersebut, sehingga ketika user ingin mengakses service tersebut, ia hanya diberikan tiket (perlu diingat bahwa Kerberos berbasis tiket) yang mengandung credential penyedia service (dalam bentuk **NTLM hash**).
 
 Untuk melancarkan serangan tersebut, anda perlu memiliki sebuah akun yang valid agar bisa me_request_ tiket karena service hanya dapat diakses oleh user yang terdaftar. Disini akun user berperan.
 
@@ -191,7 +191,13 @@ Setelah semuanya siap, anda dapat menyalakan `hashcat`.
 ```
 $ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
 ```
-> `-m` adalah tipe hash yang didapat dari situs diatas, `-a 0` adalah _attack mode_ yang digunakan, yaitu **straight** (mencoba _entry_ dari wordlist satu-satu), `tgs` adalah nama file yang berisi response, dan `/usr/share/wordlist/rockyou.txt` adalah wordlist yang digunakan.
+> `-m` adalah tipe hash yang didapat dari situs diatas
+>
+> `-a 0` adalah _attack mode_ yang digunakan, yaitu **straight** (mencoba _entry_ dari wordlist satu-satu)
+>
+> `tgs` adalah nama file yang berisi response
+>
+> dan `/usr/share/wordlist/rockyou.txt` adalah wordlist yang digunakan.
 
 <br>
 <br>
@@ -217,6 +223,6 @@ Jika anda ingin mendapatkan _shell_ ketimbang menggunakan SMB:
 
 Saya sempat absen beberapa bulan dikarenakan pekerjaan (_underpaid_ a.k.a _intern_) dan baru bisa main HTB lagi karena akhir-akhir ini sedang sedikit senggang.
 
-Saya masih menyimpan beberapa write-up yang telah selesai dan tinggal dipindahkan ke _markdown_, tapi butuh waktu karena saya ingin membuat konten yang 'relatif' berkualitas.
+Saya masih menyimpan beberapa write-up yang telah selesai dan tinggal dipindahkan ke _markdown_, tapi butuh waktu karena saya ingin membuat konten yang "relatif" berkualitas.
 
 Akhir kata, mohon bersabar jika anda menunggu write-up berikutnya :)
