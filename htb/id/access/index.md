@@ -50,7 +50,14 @@ Hal pertama yang perlu dilakukan ketika menemukan sebuah alamat IP adalah meng-`
 ```
 $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
 ```
-Sintaks tersebut akan memeriksa semua _port_, melakukan _scan_ dengan _Timing-level_ 4 (**Aggresive** -- artinya mempercepat scan tetapi tidak terlalu cepat hingga hasil scan tidak akurat), dan menggunakan _verbosity-level_ 1 (artinya `nmap` akan sedikit lebih detail dalam memberikan hasil).
+> `-p 1-65535` akan memeriksa semua _port_
+>
+> `-T 4` akan melakukan _scan_ dengan _Timing-level_ 4 (**Aggresive** -- artinya mempercepat scan tetapi tidak terlalu cepat hingga hasil scan tidak akurat)
+>
+> `-A` akan memeriksa OS, versi, melakukan scan menggunakan _script_ dan _traceroute_
+>
+> `-v` atau _verbosity-level_ 1 membuat `nmap` akan sedikit lebih detail dalam memberikan hasil.
+
 <br>
 
 <p align="center"> 
@@ -103,9 +110,9 @@ Ada cara yang lebih efisien bila anda lebih menyukai _one-liner_ dengan `wget`.
 ```
 $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 ```
-> argumen `--no-passive-ftp` akan men-disable Passive mode FTP (singkatnya dalam Passive mode FTP, server tidak membuat koneksi ke client dan file transfer hanya satu arah dari client ke server). Biasanya argumen ini dipakai bila **tidak ada** _client-side firewall_.
+> `--no-passive-ftp` akan men-disable Passive mode FTP (singkatnya dalam Passive mode FTP, server tidak membuat koneksi ke client dan file transfer hanya satu arah dari client ke server). Biasanya argumen ini dipakai bila **tidak ada** _client-side firewall_.
 >
-> argumen `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder di dalam folder, kita akan mengambil file sampai ke dalam folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file ke dalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
+> `-r` mengindikasikan bahwa kita ingin mengambil file secara _recursive_, artinya bila ada folder di dalam folder, kita akan mengambil file sampai ke dalam folder terakhir. Secara default, `-r` hanya mengambil sampai maksimum 5 file ke dalam. Jika anda ingin men-download file yang memiliki banyak subfolder anda harus mengganti angkanya sesuai kebutuhan.
 
 <br>
 <br>

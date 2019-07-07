@@ -95,9 +95,10 @@ Or if you want to use `wget`, of course you can.
 ```
 $ wget --no-passive-ftp -r ftp://anonymous:anonymous@10.10.10.98//
 ```
-> the `--no-passive-ftp` argument disables the use of passive FTP transfer mode (it has something to do about firewall and stuff because sometimes the transfer doesn't work using the passive mode) and the `-r` argument means that we want to download the files recursively. 
-> 
-> Note that the default depth of `-r` is 5, so you have to change this as needed if you want to use it later in real life.
+> `--no-passive-ftp` argument disables the use of passive FTP transfer mode (it has something to do about firewall and stuff because sometimes the transfer doesn't work using the passive mode)
+>
+> `-r` argument means that we want to download the files recursively. Note that the default depth of `-r` is 5, so you have to change this as needed if you want to use it later in real life.
+
 <br>
 
 <p align="center"> 

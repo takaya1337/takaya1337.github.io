@@ -242,5 +242,3 @@ Active Directory is quite fun, right? Oh, and a little bonus if you want to get 
 </p>
 
 That should end this write-up. Hope you're having fun reading it as much as I'm having a hard time researching it :D
-<br>
-<br>

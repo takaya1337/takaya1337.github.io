@@ -191,7 +191,7 @@ Setelah semuanya siap, anda dapat menyalakan `hashcat`.
 ```
 $ hashcat -m 13100 -a 0 tgs /usr/share/wordlist/rockyou.txt
 ```
-> `-m` adalah tipe hash yang didapat dari situs diatas
+> `-m 13100` adalah tipe hash yang didapat dari situs diatas
 >
 > `-a 0` adalah _attack mode_ yang digunakan, yaitu **straight** (mencoba _entry_ dari wordlist satu-satu)
 >
