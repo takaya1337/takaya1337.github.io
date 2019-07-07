@@ -164,11 +164,11 @@ If you read the explanation from the link above, you should already made a conne
 ### About Kerberoast
 From **[a website](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)**(currently down, read **[this](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** website for another reference) I stumbled upon while searching for **SVC_TGS**, I found that there are different types of attacks on a Kerberos service and the most famous is of course **Kerberoast**.
 
-According to a very valid **[source](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** from Derbycon 2014, Kerberoast is an attack on the ticketing service used in Windows' implementation of Kerberos. However, to use this method one must already have initial access to the system, that is a (normal) user account registered on the Active Directory or AD complete with the password, which we coincidentally aqcuired in the previous step.
+According to a very valid **[source](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** from Derbycon 2014, Kerberoast is an attack on the ticketing service used in Windows' implementation of Kerberos. 
 
-The whole point of this exploit is to crack another user's password and enable further enumeration which could lead to the Golden Ticket exploit with the ultimate goal to gain access as the Enterprise Admin, which means you get to control the whole AD forest.
+The whole point of this exploit is to request a ticket as a "valid member" of the AD domain for a registered service, which in turn will give us a ticket with the service's credential embedded in it that we can extract and crack.
 
-Again, the goal this time is only to get the Administrator credentials, so...
+And we happen to have the initial foothold to make that happen.
 <br>
 
 <p align="center"> 
