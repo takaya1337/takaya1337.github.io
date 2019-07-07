@@ -21,6 +21,7 @@ So that's it, have a good time.
 > Special notes for you **special snowflakes**, by my experience have I witnessed firsthand your tendency to ask questions which a few keyboard clicks of Google search can answer easily. And I mean **easily**.
 >
 > But remember this, when you ask a question (especially a technical one) you're dealing with a human in the other end, not a search engine. You can watch this YouTube video to further understand what I mean: **_[LiveOverflow's Guide to Ask Questions](https://www.youtube.com/watch?v=53zkBvL4ZB4)_**. So, think before you type.
+>
 > And one more thing, before you ask something like "I would like to start learning this, but I don't know where to start, where can I find the right material for it?", here's my answer: **the Internet is not a small place. Get your questions right, and the answers will most likely be the same.**
 
 <br>
