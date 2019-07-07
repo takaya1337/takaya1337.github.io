@@ -16,7 +16,7 @@ layout: default
 <br>
 
 ### A Special Note
-Karena beberapa hal, saya tidak dapat menyelesaikan _privilege escalation_ sebelum mesinnya di-_retired_. Karena saya sangat penasaran, saya mencoba melihat **[write-up orang lain](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)** dan mencoba mengerti tahap-tahapnya.
+Karena beberapa hal, saya tidak dapat menyelesaikan _privilege escalation_ sebelum mesinnya di_retired_. Karena saya sangat penasaran, saya mencoba melihat **[write-up orang lain](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)** dan mencoba mengerti tahap-tahapnya.
 
 Saya tidak suka mengambil properti intelektual orang lain tanpa memberikan sumber yang jelas, dan saya harap anda dapat melakukan hal yang sama di kemudian hari.
 
@@ -151,7 +151,7 @@ Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artik
 
 Menurut sebuah **[dokumen](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** dari Derbycon 2014 yang saya temui, **Kerberoast** adalah sebuah serangan terhadap sistem tiket Kerberos. Service yang terdaftar dalam domain Active Directory tersebut memiliki SPN atau _Service Principal Name_, sebuah ID unik yang nantinya akan diasosiasikan dengan sebuah "akun" untuk service tersebut, sehingga ketika user ingin mengakses service tersebut, ia hanya diberikan tiket (perlu diingat bahwa Kerberos berbasis tiket) yang mengandung credential (dalam bentuk **NTLM hash**).
 
-Untuk melancarkan serangan tersebut, anda perlu memiliki sebuah akun yang valid agar bisa me-_request_ tiket karena service hanya dapat diakses oleh user yang terdaftar. Disini akun user berperan.
+Untuk melancarkan serangan tersebut, anda perlu memiliki sebuah akun yang valid agar bisa me_request_ tiket karena service hanya dapat diakses oleh user yang terdaftar. Disini akun user berperan.
 
 Dari referensi write-up yang saya letakkan diatas, saya juga menggunakan **[impacket](https://github.com/SecureAuthCorp/impacket)**, serangkaian _networking tool_ yang memiliki banyak fitur, salah satunya adalah fitur untuk melakukan **request TGS**.
 <br>
@@ -177,7 +177,7 @@ Langkah terakhir adalah mendapatkan password Administrator dari hash tersebut.
 <br>
 
 ### Crack!
-Untuk meng-_crack_ hash tersebut, anda dapat menggunakan `hashcat`. Tetapi sebelum itu anda harus mengetahui tipe hash yang ingin dicrack.
+Untuk meng_crack_ hash tersebut, anda dapat menggunakan `hashcat`. Tetapi sebelum itu anda harus mengetahui tipe hash yang ingin dicrack.
 Informasi tersebut bisa didapat dari situs **[hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes)** dengan mencari `krb5tgs$23`, sesuai dengan _response_ yang diberikan request TGS tadi.
 <br>
 
