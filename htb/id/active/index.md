@@ -78,7 +78,7 @@ $ smbclient //10.10.10.100/Replication/ -I 10.10.10.100
 
 Ada baiknya jika anda melakukan sedikit eksplorasi setelah mendapat akses pertama (atau yang lebih sering disebut sebagai _initial foothold_ di komunitas HTB) sebelum membaca lebih lanjut.
 
-Sebagai referensi sedikit, anda dapat membaca artikel berikut bertajuk: **[Attack Methods for Gaining Domain Admin Rights in Active Directory](https://adsecurity.org/?p=2362)**.
+Sebagai referensi sedikit, anda dapat membaca artikel berikut bertajuk **[Attack Methods for Gaining Domain Admin Rights in Active Directory](https://adsecurity.org/?p=2362)**.
 
 Artikel tersebut menyebutkan bahwa dalam Active Directory, terdapat beberapa file XML berisi credential yang dienkripsi oleh AES-256 bit.
 <br>
