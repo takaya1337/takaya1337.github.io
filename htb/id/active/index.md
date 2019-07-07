@@ -147,7 +147,7 @@ Petunjuk untuk tahap ini ada di dalam nama User.
 <br>
 
 ### About Kerberoast
-Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artikel menarik](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)**(saat ini situs tersebut tidak dapat diakses, anda dapat membaca artikel **[berikut](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** sebagai referensi tambahan) tentang **Kerberoast**.
+Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artikel menarik](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)** (saat ini situs tersebut tidak dapat diakses, anda dapat membaca artikel **[berikut](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** sebagai referensi tambahan) tentang **Kerberoast**.
 
 Menurut sebuah **[dokumen](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** dari Derbycon 2014 yang saya temui, **Kerberoast** adalah sebuah serangan terhadap sistem tiket Kerberos. Service yang terdaftar dalam domain Active Directory tersebut memiliki SPN atau _Service Principal Name_, sebuah ID unik yang nantinya akan diasosiasikan dengan sebuah "akun" untuk service tersebut, sehingga ketika user ingin mengakses service tersebut, ia hanya diberikan tiket (perlu diingat bahwa Kerberos berbasis tiket) yang mengandung credential (dalam bentuk **NTLM hash**).
 
