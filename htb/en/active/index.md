@@ -166,9 +166,9 @@ From **[a website](http://www.harmj0y.net/blog/powershell/kerberoasting-without-
 
 According to a very valid **[source](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1493862736.pdf)** from Derbycon 2014, Kerberoast is an attack on the ticketing service used in Windows' implementation of Kerberos. 
 
-The whole point of this exploit is to request a ticket as a "valid member" of the AD domain for a registered service, which in turn will give us a ticket with the service's credential embedded in it that we can extract and crack.
+The whole point of this exploit is to request a ticket as a "valid member" of the AD domain for a registered service, which in turn will give us the service's credential embedded in the ticket that we can extract and crack.
 
-And we happen to have the initial foothold to make that happen.
+And we happen to have the initial foothold to make that kind of attack.
 <br>
 
 <p align="center"> 
