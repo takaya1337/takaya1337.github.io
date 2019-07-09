@@ -135,7 +135,7 @@ It seems we don't have enough credentials to continue this way. Alright, to Wind
 <br>
 <br>
 
-### The files
+### The Files
 We can try to open them with the help of online tools (as for the .zip, it can even be done manually on Linux systems) but for the best experience, it would be more practical to access them in their natural environment, Windows.
 
 The **Access Control.zip** is password protected, and we simply don’t have the power and time to crack it manually, leaving us with the other file. 
