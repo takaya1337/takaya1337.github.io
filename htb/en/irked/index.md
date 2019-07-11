@@ -154,7 +154,7 @@ $ steghide extract -sf irked.jpg -p UpupDOWNdownLRlrBAbaSSss
 <img src="https://takaya1337.github.io/htb/assets/03/irked10-djpass.png">
 </p>
 
-Now that is the credential we're looking for.
+Now that, is the credential we're looking for.
 <br>
 
 Username	: **djmardov**
