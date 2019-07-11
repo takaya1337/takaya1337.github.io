@@ -134,7 +134,7 @@ By checking **ircd**'s **.bash_history** you can see the previous commands perfo
 ### Steg is for Steganography
 The password above **is not** the password for SSH.
 
-If you read the sentence very very very carefully, there is a word that seems out of place. What does "elite steg" has anything to do with anything? Not to mention the password looks like a modified Konami Code. Everything seems misleading.
+If you read the sentence very very very carefully, there is a word that seems out of place. What does "elite steg" have to do with anything? Not to mention the password looks like a modified Konami Code. Everything seems misleading.
 
 At times like these, it's alright to check the **[forums](https://forum.hackthebox.eu/discussion/1278/irked/p4)** for a hint or two :)
 
