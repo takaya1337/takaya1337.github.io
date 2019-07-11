@@ -34,6 +34,7 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.117
 The box has **SSH**, **Apache 2.4.10**, and **UnrealIRCd**. Of all the services, only one service can be enumerated without any credentials.
 <br>
 <br>
+<br>
 
 ### The Website
 <p align="center"> 
@@ -209,7 +210,6 @@ drwxrwxrwx 2 john john	  0 Jul 14 20:00 test-dir
 > I think it will be easier to explain it with colors.
 
 <br>
-<br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/03/perm.png">
@@ -221,7 +221,6 @@ When you do a
 ```
 $ chmod 644 root.txt
 ```
-<br>
 
 here's what happens:
 <p align="center"> 
