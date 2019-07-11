@@ -52,6 +52,7 @@ This box has a lot more open ports than the previous one, but focus your attenti
 The real reason you should put more thoughts into this service first is due to the reason that no other service in this machine allows enumeration without credentials (much like the previous anonymous FTP) except SMB.
 <br>
 <br>
+<br>
 
 ### SMB
 Maybe some of you have heard the name before. SMB was famous for a certain critical Windows exploit at some point. However, I've never actually used SMB up until now, so it's a new experience for me too.
@@ -160,6 +161,7 @@ In a sentence, **Kerberos is a ticket-based authentication protocol that involve
 If you read the explanation from the link above, you should already made a connection between the word "TGS" and the username where we got the user flag before.
 <br>
 <br>
+<br>
 
 ### About Kerberoast
 From **[a website](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)**(currently down, read **[this](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** website for another reference) I stumbled upon while searching for **SVC_TGS**, I found that there are different types of attacks on a Kerberos service and the most famous is of course **Kerberoast**.
@@ -198,6 +200,7 @@ $ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_T
 </p>
 
 Alright, we got the hash for Administrator. The password is only a `hashcat` away.
+<br>
 <br>
 <br>
 

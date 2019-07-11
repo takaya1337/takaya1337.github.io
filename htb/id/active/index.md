@@ -48,6 +48,7 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.100
 Mesin kali ini memiliki banyak _port_ yang terbuka sehingga berpotensi membingungkan pemain yang belum terbiasa. Akan tetapi, dari seluruh _service_ yang terlihat dari `nmap`, ada sebuah service yang dapat dienumerasi tanpa memiliki _credential_ apapun, yaitu **port 445** atau yang tertulis sebagai **microsoft-ds**.
 <br>
 <br>
+<br>
 
 ### SMB
 SMB atau _Server Message Block_ adalah sebuah protokol berbasis _client-server_ yang berfungsi untuk membagi akses terhadap sebuah file (atau service, misalnya _printer_) antara dua mesin atau lebih di dalam suatu jaringan.
@@ -145,6 +146,7 @@ Untuk informasi lebih lanjut, saya sangat anjurkan untuk membaca artikel berikut
 Petunjuk untuk tahap ini ada di dalam nama User.
 <br>
 <br>
+<br>
 
 ### About Kerberoast
 Ketika saya mencari informasi tentang **SVC_TGS**, saya mendapat sebuah **[artikel menarik](http://www.harmj0y.net/blog/powershell/kerberoasting-without-mimikatz/)** (saat ini situs tersebut tidak dapat diakses, anda dapat membaca artikel **[berikut](https://www.blackhillsinfosec.com/a-toast-to-kerberoast/)** sebagai referensi tambahan) tentang **Kerberoast**.
@@ -173,6 +175,7 @@ $ impacket/examples/GetUserSPNs.py -request -dc-ip 10.10.10.100 ACTIVE.HTB/SVC_T
 </p>
 
 Langkah terakhir adalah mendapatkan password Administrator dari hash tersebut.
+<br>
 <br>
 <br>
 

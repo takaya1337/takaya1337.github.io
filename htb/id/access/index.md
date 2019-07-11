@@ -67,6 +67,7 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
 Dapat kita lihat bahwa mesin tersebut memiliki beberapa _service_ yang terbuka, yaitu: **FTP server, Telnet, dan HTTP server (Microsoft IIS 7.5)**. Mari kita cek yang paling pertama.
 <br>
 <br>
+<br>
 
 ### FTP
 FTP atau _File Transfer Protocol_ adalah sebuah protokol atau **cara** untuk memindahkan file secara online. Anda bisa mencari info lebih lanjut tentang FTP di Internet (seperti perbedaan FTP dan FTPS serta mengapa anda tidak disarankan untuk menggunakan FTP untuk keperluan sehari-hari) karena saya hanya akan membahas yang berhubungan dengan mesin ini saja.
@@ -140,6 +141,7 @@ Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, ti
 Tapi sebelumnya mari kita lihat Telnet terlebih dahulu.
 <br>
 <br>
+<br>
 
 ### Telnet
 Telnet atau _Teletype Network_ adalah sebuah protokol atau **cara** untuk mengakses sebuah _remote machine_. Bila anda familiar dengan SSH, Telnet adalah nenek moyangnya yang sedikit lebih berbahaya. Fungsinya sama seperti SSH, yaitu untuk memberikan akses interaktif dengan sebuah mesin lewat internet.
@@ -152,6 +154,7 @@ Untuk _connect_ ke Telnet mesin ini, anda dapat menggunakan `telnet` command di 
 </p>
 
 Kita belum mendapatkan _credential_ yang diperlukan untuk mengakses Telnet. Anda bisa menyiapkan mesin Windows anda untuk langkah selanjutnya.
+<br>
 <br>
 <br>
 
@@ -200,6 +203,7 @@ Username       : **security**
 Password       : **4Cc3ssC0ntr0ller**
 <br>
 <br>
+<br>
 
 ### Telnet Revisited
 Kali ini kita bisa masuk :)
@@ -244,6 +248,7 @@ Setelah mencoba-coba beberapa command dari link diatas, saya menemukan sesuatu y
 </p>
 
 Langkah berikutnya akan semakin menyenangkan.
+<br>
 <br>
 <br>
 

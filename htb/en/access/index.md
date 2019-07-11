@@ -60,6 +60,7 @@ to scan all open ports and services. Here is the output.
 We can see that the box has **FTP server, Telnet, and HTTP server (Microsoft IIS 7.5)** made accessible to the internet. The most methodical approach is to try each of them starting from the first, and since an FTP server sometimes allows anonymous login, we can at least check that out.
 <br>
 <br>
+<br>
 
 ### FTP
 Simply fire-up the FTP, you can use command-line or GUI to achieve this.
@@ -122,6 +123,7 @@ Everything's good, let's proceed by checking what kind of files they are.
 Look's like we need to go Windows to open these files. But before that, why don't we check the Telnet service?
 <br>
 <br>
+<br>
 
 ### Telnet
 You can use the `telnet` command out of the box.
@@ -132,6 +134,7 @@ You can use the `telnet` command out of the box.
 </p>
 
 It seems we don't have enough credentials to continue this way. Alright, to Windows then.
+<br>
 <br>
 <br>
 
@@ -167,6 +170,7 @@ Right on! There's the credential for Telnet.
 Username	: **security**
 
 Password	: **4Cc3ssC0ntr0ller**
+<br>
 <br>
 <br>
 
@@ -219,6 +223,7 @@ After I tried some of the commands, I found something interesting.
 </p>
 
 Looks like we know what to do next.
+<br>
 <br>
 <br>
 
