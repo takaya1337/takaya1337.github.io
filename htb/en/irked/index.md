@@ -31,7 +31,7 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.117
 <img src="https://takaya1337.github.io/htb/assets/03/irked1-nmap.png">
 </p>
 
-The box has **SSH**, **Apache 2.4.10**, and **UnrealIRCd**. Of all the services, only one service can be enumerated without credentials at all.
+The box has **SSH**, **Apache 2.4.10**, and **UnrealIRCd**. Of all the services, only one service can be enumerated without any credentials.
 <br>
 <br>
 
@@ -47,7 +47,7 @@ Let's see what we can find from it.
 <br>
 
 ### IRC
-IRC is a protocol that allows multiple client to chat in real-time. It was created by Jarkko (also known as WiZ) somewhere in the 90's. I once saw a thread dedicated for him in an image board, was quite nice. IRC may not be as popular now as it was back then, but it was significant back in the day (or so I've heard).
+IRC is a protocol that allows multiple client to chat in real-time. It was created by Jarkko (also known as WiZ) somewhere in the 90's. I once saw a thread dedicated for him in an image board, it was quite nice. IRC may not be as popular now as it was back then, but it was significant back in the day (or so I've heard).
 
 You can check the IRC by connecting to it, but as the website says, it's just "almost" working.
 <br>
@@ -98,7 +98,9 @@ msf > exploit
 <img src="https://takaya1337.github.io/htb/assets/03/irked4-ircshell.png">
 </p>
 
-Now that you get the initial foothold, as usual, enumerate. I've heard some people even got root before user. But personally, I think it's more fun to do it as the problemsetter intended so you can learn a little bit more.
+Now that you've got the initial foothold, as usual, enumerate. I've heard some people even got root before user. But personally, I think it's more fun to do it as the problemsetter intended so you can learn a little bit more.
+<br>
+<br>
 
 ### Another User
 If you explored a little bit, you should've found the user flag in **djmardov**'s home directory.
@@ -116,7 +118,7 @@ In a Linux box, one way of enumerating is to search the command history located 
 <img src="https://takaya1337.github.io/htb/assets/03/irked6-history.png">
 </p>
 
-By checking **ircd**'s **.bash_history** you can see the previous commands performed by this user, and you can see that it interacts with **djmardov**'s Document directory. It also read a file called **.backup.txt**.
+By checking **ircd**'s **.bash_history** you can see the previous commands performed by this user, and you can see that it interacts with **djmardov**'s Document directory. It also read a file called **.backup**.
 <br>
 
 <p align="center"> 
@@ -135,7 +137,7 @@ I never asked a question myself, because the information I need most likely has 
 
 Anyway, you will notice that lots of people say something about the box being more CTF oriented than real-life case, and it's kinda true.
 
-The **.backup.txt** provides a password for **steganography**, roughly the art of hiding something in a media. And the only media so far is...
+The **.backup** provides a password for **steganography**, roughly the art of hiding something in a media. And the only media so far is...
 <br>
 
 <p align="center"> 
@@ -187,5 +189,7 @@ Scripts may help in a real pentesting job, but one thing that will definitely he
 If you search for "Linux enumeration", chances are you have already read this **[blog](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)**.
 
 That blog gives a very nice enumeration cheat sheet and a little bit of information as well. However, what I want to highlight for this machine is the **Advanced File Permission in Linux**.
+<br>
+<br>
 
 ### On to SUID, SGID, and Sticky Bit
