@@ -308,8 +308,4 @@ We only have to put a shell command on the location.
 <img src="https://takaya1337.github.io/htb/assets/03/irked15-privesc.png">
 </p>
 
-<p align="center"> 
-<img src="https://takaya1337.github.io/htb/assets/03/irked16-root.png">
-</p>
-
 Really loved the **#**!
