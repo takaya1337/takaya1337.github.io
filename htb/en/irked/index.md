@@ -242,24 +242,24 @@ You should understand by now that most people's favorite permission from `chmod 
 <br>
 
 ### On to SUID, SGID, and Sticky Bit
-There are more to files than just the basic permission above. Let's say that you're a lead sysadmin working with a few sysadmins on a project. Due to some circumstances, you are the only one allowed to have a `sudo` access. Now what if, your fellow sysadmin needed to execute a program as root, manually, consistently but in random interval, but the user itself cannot be granted root access? Not to mention you have to go to meetings so you're not always available, and lending your credential is not even an option.
+There are more to files than just the basic permissions above. Let's say that you're a lead sysadmin working with a few sysadmins on a project. Due to some circumstances, you are the only one allowed to have a `sudo` access. Now what if, your fellow sysadmin needed to execute a program as root, manually, consistently but in random interval, but the user itself cannot be granted root access? Not to mention you have to go to meetings so you're not always available, and lending your credential is not even an option.
 
 At a time like this, it would be a [good] idea to use **SUID** on your program.
 
 **[SUID](https://www.linux.com/blog/what-suid-and-how-set-suid-linuxunix)** or Set owner User ID is one of the three special permissions that if set on a file will enable anyone to execute the file as the file's owner, the dark green one on my picture above.
 
-**SGID** is just about the same, but switch the user with group instead.
+**[SGID](https://www.linux.com/blog/what-sgid-and-how-set-sgid-linux)** is just about the same, but switch the user with group instead.
 
-**Sticky Bit** is a permission that will only let a user modify its own files in the directory where the Sticky Bit is set (most of the time, Sticky Bit is set on a directory).
+**[Sticky Bit](https://www.linux.com/blog/what-sticky-bit-and-how-set-it-linux)** is a permission that will only let a user delete its own files in the directory where the Sticky Bit is set (most of the time, Sticky Bit is set on a directory).
 
-You can find more information about the special permission **[here](https://www.thegeekdiary.com/what-is-suid-sgid-and-sticky-bit/)**.
+You can find more information about the special permissions **[here](https://www.thegeekdiary.com/what-is-suid-sgid-and-sticky-bit/)**.
 
 Getting back to the first paragraph, right now your fellow would be able to execute that program as root anytime he needs without you giving up the credential. Everyone's happy. Until he found out how to modify the program to give him a shell everytime he executes it. Guess under what user the shell is run with? **root**.
 <br>
 <br>
 <br>
 
-### Just a Common Binary, with Special Permission
+### Just a Common Binary, with a Special Permission
 It is common to search for SUID-enabled program when someone is looking for a privilege escalation attack surface. But that doesn't mean every program with SUID-enabled is dangerous. Some of the basic utilities in Linux are SUID-enabled because they need to be set that way to function as intended. Only when the implementation is wrong (which is to say, most of the time) the program becomes dangerous.
 
 To search for SUID-enabled program you can use `find`:
