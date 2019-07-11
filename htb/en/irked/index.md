@@ -107,7 +107,7 @@ Now that you've got the initial foothold, as usual, enumerate. I've heard some p
 <br>
 
 ### Another User
-If you explored a little bit, you should've found the user flag in **djmardov**'s home directory.
+If you explored thoroughly, you should've found the user flag in **djmardov**'s home directory.
 
 Unfortunately, your shell belongs to **ircd** so you can't read the flag. So there is no other option except to get the credentials for **djmardov**.
 
