@@ -192,4 +192,50 @@ That blog gives a very nice enumeration cheat sheet and a little bit of informat
 <br>
 <br>
 
+### Basic Linux File Permission
+There is a famous saying about Linux systems that says,
+
+"Everything is a file".
+
+Even though this is a bit of an oversimplification of the matter, the saying is true to some extent. Everything does appear as files in Linux, and with it comes a handy little attribute called **permission**.
+
+This permission manages who can access the file and how far can they access it. It is common in Linux to limit everything to everyone, thus implementing the **[the Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)** in a way.
+
+The permission works like this:
+```
+drwxrwxrwx 2 john john	  0 Jul 14 20:00 test-dir
+-rw-r--r-- 1 root root	 32 Aug 10 00:00 root.txt
+```
+> I think it will be easier to explain it with colors.
+
+<br>
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/perm.png">
+</p>
+
+Each file (yes, directories are files too) has three `rwx` attributes that determines whether the file is `readable`, `writable`, and `executable` by the file's **owner** (the user under whom the file was created), **group** (by default will refer to the user's primary group), and **others** (everyone else).
+
+When you do a
+```
+$ chmod 644 root.txt
+```
+<br>
+
+here's what happens:
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/perm2.png">
+</p>
+
+The number that `chmod` takes as the first argument is called an octal number, or base-eight (which means the "ten" is eight, instead of our usual base-ten/decimal where the "ten" is, in fact, ten). Octal number is used because it denotes the maximum sum for three binary digits (4 + 2 + 1 = 7 is the maximum number).
+
+The octal number will then be split, and each will be converted to binary digits where the three attributes `r`, `w`, and `x` will be checked if their "switch" is turned on or not. If yes, then the permission for the respective attribute and position is granted.
+
+Linux is very strict when it gets to security attributes and not even **root** can execute a file unless the permission is changed to allow it to be executable, but of course **root** can easily fix that. It will be a different matter, however when a normal user is faced with the same situation. The user can only change the permission if he owns the file, but allowing it to be writable, readable, and executable by everyone defeats the very purpose of security.
+
+You should understand by now that most people's favorite permission from `chmod 777` is **very dangerous** and should be avoided whenever possible.
+<br>
+<br>
+
 ### On to SUID, SGID, and Sticky Bit
