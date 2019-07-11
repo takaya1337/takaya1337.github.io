@@ -32,8 +32,9 @@ So that's it, have a good time.
 
 |       English      |     Indonesian    |
 |:-------------------|:------------------|
-| **[01/12/18 - Access](https://takaya1337.github.io/htb/en/access)**   | **[01/12/18 - Access](https://takaya1337.github.io/htb/id/access)**       |
-| **[12/12/18 - Active](https://takaya1337.github.io/htb/en/active)**   | **[12/12/18 - Active](https://takaya1337.github.io/htb/id/active)**       |
+| **[29/11/18 - Access](https://takaya1337.github.io/htb/en/access)**   | **[29/11/18 - Access](https://takaya1337.github.io/htb/id/access)**       |
+| **[11/12/18 - Active](https://takaya1337.github.io/htb/en/active)**   | **[11/12/18 - Active](https://takaya1337.github.io/htb/id/active)**       |
+| **[02/02/19 - Irked](https://takaya1337.github.io/htb/en/irked)**   | **[02/02/19 - Irked](https://takaya1337.github.io/htb/id/irked)**       |
 
 {::comment}
 | **[16/1218 - SecNotes](https://takaya1337.github.io/htb/en/secnotes)** | **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/id/secnotes)**     |
