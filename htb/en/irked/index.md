@@ -46,6 +46,7 @@ The website doesn't have anything except this image, and a very important inform
 Let's see what we can find from it.
 <br>
 <br>
+<br>
 
 ### IRC
 IRC is a protocol that allows multiple client to chat in real-time. It was created by Jarkko (also known as WiZ) somewhere in the 90's. I once saw a thread dedicated for him in an image board, it was quite nice. IRC may not be as popular now as it was back then, but it was significant back in the day (or so I've heard).
@@ -80,6 +81,7 @@ And the best thing is, there is a **Metasploit** module for this exploit.
 To be honest, `msf` made it too easy.
 <br>
 <br>
+<br>
 
 ### Metasploit My Life
 Probably the hardest part about using Metasploit is the installation part, but if you use Kali Linux, everything will be as smooth as butter.
@@ -100,6 +102,7 @@ msf > exploit
 </p>
 
 Now that you've got the initial foothold, as usual, enumerate. I've heard some people even got root before user. But personally, I think it's more fun to do it as the problemsetter intended so you can learn a little bit more.
+<br>
 <br>
 <br>
 
@@ -125,6 +128,7 @@ By checking **ircd**'s **.bash_history** you can see the previous commands perfo
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/03/irked8-steg.png">
 </p>
+<br>
 <br>
 
 ### Steg is for Steganography
@@ -192,6 +196,7 @@ If you search for "Linux enumeration", chances are you have already read this **
 That blog gives a very nice enumeration cheat sheet and a little bit of information as well. However, what I want to highlight for this machine is the **Advanced File Permission in Linux**.
 <br>
 <br>
+<br>
 
 ### Basic Linux File Permission
 There is a famous saying about Linux systems that says,
@@ -209,15 +214,13 @@ drwxrwxrwx 2 john john	  0 Jul 14 20:00 test-dir
 ```
 > I think it will be easier to explain it with colors.
 
-<br>
-
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/03/perm.png">
 </p>
 
 Each file (yes, directories are files too) has three `rwx` attributes that determines whether the file is `readable`, `writable`, and `executable` by the file's **owner** (the user under whom the file was created), **group** (by default will refer to the user's primary group), and **others** (everyone else).
 
-When you do a
+When you do
 ```
 $ chmod 644 root.txt
 ```
@@ -236,5 +239,77 @@ Linux is very strict when it gets to security attributes and not even **root** c
 You should understand by now that most people's favorite permission from `chmod 777` is **very dangerous** and should be avoided whenever possible.
 <br>
 <br>
+<br>
 
 ### On to SUID, SGID, and Sticky Bit
+There are more to files than just the basic permission above. Let's say that you're a lead sysadmin working with a few sysadmins on a project. Due to some circumstances, you are the only one allowed to have a `sudo` access. Now what if, your fellow sysadmin needed to execute a program as root, manually, consistently but in random interval, but the user itself cannot be granted root access? Not to mention you have to go to meetings so you're not always available, and lending your credential is not even an option.
+
+At a time like this, it would be a [good] idea to use **SUID** on your program.
+
+**[SUID](https://www.linux.com/blog/what-suid-and-how-set-suid-linuxunix)** or Set owner User ID is one of the three special permissions that if set on a file will enable anyone to execute the file as the file's owner, the dark green one on my picture above.
+
+**SGID** is just about the same, but switch the user with group instead.
+
+**Sticky Bit** is a permission that will only let a user modify its own files in the directory where the Sticky Bit is set (most of the time, Sticky Bit is set on a directory).
+
+You can find more information about the special permission **[here](https://www.thegeekdiary.com/what-is-suid-sgid-and-sticky-bit/)**.
+
+Getting back to the first paragraph, right now your fellow would be able to execute that program as root anytime he needs without you giving up the credential. Everyone's happy. Until he found out how to modify the program to give him a shell everytime he executes it. Guess under what user the shell is run with? **root**.
+<br>
+<br>
+<br>
+
+### Just a Common Binary, with Special Permission
+It is common to search for SUID-enabled program when someone is looking for a privilege escalation attack surface. But that doesn't mean every program with SUID-enabled is dangerous. Some of the basic utilities in Linux are SUID-enabled because they need to be set that way to function as intended. Only when the implementation is wrong (which is to say, most of the time) the program becomes dangerous.
+
+To search for SUID-enabled program you can use `find`:
+```
+$ find / -perm -u=s -type f 2>/dev/null
+```
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked12-suid.png">
+</p>
+
+Of all the programs listed above, try to find one that doesn't belong. I got it quite fast because I compared the result with my computer's.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked13-anomaly.png">
+</p>
+
+After some trial and error, I found that this is the weird program. It shows the result of `who` command and it tries to execute something with `sh` in **/tmp/listusers**.
+
+To make sure, I exfiltrated the binary to my computer. You need `openssh-server` to run so you can `scp` the binary straight to your **tun0** IP address from your **.ovpn** file.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/exfiltrate-program.png">
+</p>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/file.png">
+</p>
+
+Indeed, it's a 32-bit executable. You can consult your disassembler to find out how it works.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/program.png">
+</p>
+
+See how simple it is? It executes `who`, set the SUID-bit as **root**, and executes anything on **/tmp/listusers**.
+
+We only have to put a shell command on the location.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked15-privesc.png">
+</p>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked16-root.png">
+</p>
+
+Really loved the **#**!
