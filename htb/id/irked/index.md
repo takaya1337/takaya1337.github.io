@@ -220,7 +220,7 @@ Yang menjadi perhatian untuk box ini adalah **Advanced File Permission di dalam 
 <br>
 
 ### Basic Linux File Permission
-Sebelum terjun ke bagian  "_advanced_", ada baiknya kita mengulang yang _basic_ terlebih dahulu.
+Sebelum terjun ke bagian  _"advanced"_, ada baiknya kita mengulang yang _basic_ terlebih dahulu.
 
 Di dalam sistem Linux, semua file diatur dengan permission sebagai bentuk _access control_, dimana permission menentukan siapa saja yang bisa mengakses file tersebut dan apa saja akses yang diberikan.
 
