@@ -270,9 +270,9 @@ Bilangan octal yang anda masukkan sebagai argumen untuk `chmod` akan diterjemahk
 Tiga bit diatas terletak di dalam kolom yang mewakili para pihak yang terlibat dalam sistem:
 > kolom pertama (hijau) milik `owner/user`
 > 
-> kolom kedua [biru] milik `group`
+> kolom kedua (biru) milik `group`
 >
-> kolom ketiga [oranye] milik `others`.
+> kolom ketiga (oranye) milik `others`.
 
 Posisi bit dalam kolom tersebut mewakili tiga atribut yang akan menentukan jenis akses yang diberikan:
 > 2<sup>2</sup> = 4, untuk `r`
@@ -289,3 +289,5 @@ Gabungan dari tiga kolom dan tiga atribut diatas menyusun yang disebut **Basic L
 <br>
 <br>
 <br>
+
+### On to SUID, SGID, and Sticky Bit
