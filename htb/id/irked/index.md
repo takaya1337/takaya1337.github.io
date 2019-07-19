@@ -242,8 +242,6 @@ Semua file di Linux (termasuk directory/folder) memiliki tiga pasang atribut `rw
 >
 > dan bisa dijalankan (`executable`)
 
-<br>
-
 oleh:
 > **owner** (user yang digunakan saat pembuatan file)
 >
