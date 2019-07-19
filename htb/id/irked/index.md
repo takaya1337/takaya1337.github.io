@@ -33,7 +33,7 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.117
 <img src="https://takaya1337.github.io/htb/assets/03/irked1-nmap.png">
 </p>
 
-Ada beberapa _service_ yang terdapat dalam box ini, yaitu **SSH**, **Apache 2.4.10**, dan **UnrealIRCd**. Pada umumnya, _web server_ dienumerasi terlebih dahulu karena biasanya terdapat banyak informasi untuk tahap selanjutnya.
+Ada beberapa _service_ yang terdapat dalam box ini, yaitu **SSH**, **Apache 2.4.10**, dan **UnrealIRCd**. Pada umumnya, _web server_ dienumerasi terlebih dahulu karena biasanya terdapat banyak informasi yang dapat digali tentang sebuah sistem.
 <br>
 <br>
 <br>
@@ -45,13 +45,13 @@ Ada beberapa _service_ yang terdapat dalam box ini, yaitu **SSH**, **Apache 2.4.
 
 Di dalam situs web hanya terdapat sebuah gambar dan tulisan yang menyatakan bahwa service IRC hampir berjalan.
 
-Mari kita lihat isinya.
+Mari kita lihat IRC tersebut.
 <br>
 <br>
 <br>
 
 ### IRC
-IRC atau Internet Relay Chat adalah sebuah protokol yang memperbolehkan banyak client berkomunikasi secara _real-time_ di dalam suatu server.
+Sebagai pembuka, IRC atau Internet Relay Chat adalah sebuah protokol yang memperbolehkan banyak client berkomunikasi secara _real-time_ di dalam suatu server.
 IRC sangat populer di tahun 90-an hingga awal 2000, namun sekarang penggunanya sudah berkurang jauh akibat maraknya platform modern yang lebih banyak fitur.
 Saya sendiri lebih menyukai platform yang ringan dan tidak memiliki terlalu banyak fitur yang tidak penting (favorit saya sekarang adalah Telegram).
 
@@ -71,11 +71,11 @@ Akan tetapi, apabila anda mencari informasi tentang jenis IRC yang digunakan, an
 <img src="https://takaya1337.github.io/htb/assets/03/irked2.3-infocve.png">
 </p>
 
-Terdapat sebuah CVE atau _Common Vulnerability and Exposure_ mengenai UnrealIRCd yang digunakan oleh box ini.
+Terdapat sebuah CVE atau _Common Vulnerability and Exposure_ mengenai **UnrealIRCd**, service IRC yang digunakan oleh box ini.
 
 CVE tersebut menjelaskan bahwa ada **versi UnrealIRCd yang dimodifikasi sehingga mengandung kode yang dapat memberikan akses (umumnya berupa _shell_) atau yang lebih dikenal _backdoor_ dan disebarluaskan kembali secara online**.
 
-Yang lebih nikmat lagi adalah, ada sebuah **metasploit** modul yang siap dipakai oleh kalangan hacker menengah kebawah :)
+Yang lebih nikmat lagi adalah, ada sebuah modul **metasploit** yang siap dipakai oleh kalangan hacker menengah kebawah :)
 <br>
 
 <p align="center"> 
@@ -221,3 +221,43 @@ Yang menjadi perhatian untuk box ini adalah **Advanced File Permission di dalam 
 
 ### Basic Linux File Permission
 Sebelum terjun ke bagian  "_advanced_", ada baiknya kita mengulang yang _basic_ terlebih dahulu.
+
+Di dalam sistem Linux, semua file diatur dengan permission sebagai bentuk _access control_, dimana permission menentukan siapa saja yang bisa mengakses file tersebut dan apa saja akses yang diberikan.
+
+Contoh permission dapat berbentuk seperti ini:
+```
+drwxrwxrwx 2 john john    0 Jul 14 20:00 test-dir
+-rw-r--r-- 1 root root   32 Aug 10 00:00 root.txt
+```
+> atau lebih nikmat jika disajikan berwarna:
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/perm.png">
+</p>
+
+Semua file di Linux (termasuk directory/folder) memiliki tiga pasang atribut `rwx` yang menentukan apakah file tersebut: 
+> bisa dibaca (`readable`)
+>
+> bisa ditulis (`writable`)
+>
+> dan bisa dijalankan (`executable`)
+
+<br>
+
+oleh:
+> **owner** (user yang digunakan saat pembuatan file)
+>
+> **group** (group utama/_primary group_ milik user)
+>
+> **others** (user lain yang bukan pemilik dan tidak memiliki group yang sama dengan file).
+
+<br>
+
+Warna yang ada pada gambar menunjukkan milik siapa atribut `rwx` tersebut ditujukan:
+> hijau untuk owner/user
+>
+> biru untuk group
+>
+> oranye untuk others.
+
+<br>
