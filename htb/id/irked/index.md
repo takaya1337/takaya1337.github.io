@@ -265,12 +265,27 @@ Inilah yang terjadi:
 <img src="https://takaya1337.github.io/htb/assets/03/perm2.png">
 </p>
 
-Bilangan octal yang anda masukkan sebagai argumen untuk `chmod` akan diterjemahkan ke dalam bentuk biner, untuk menyatakan apakah "bit" yang dimiliki atribut tersebut "dinyalakan" atau "dimatikan" (apabila anda inget pelajaran waktu SD, guru sering menerangkan bahwa komputer hanya mengerti 0 dan 1).
+Bilangan octal yang anda masukkan sebagai argumen untuk `chmod` akan diterjemahkan ke dalam bentuk biner, untuk menyatakan apakah "bit" yang dimiliki atribut tersebut "dinyalakan" atau "dimatikan" (apabila anda ingat pelajaran waktu SD, guru sering menerangkan bahwa komputer hanya mengerti 0 dan 1).
 
-Posisi bit tersebut mewakili atribut yang akan dinyalakan untuk kolom tersebut (kolom pertama [hijau] milik `owner/user`, kolom kedua [biru] milik `group`, dan kolom ketiga [oranye] milik `others`).
+Tiga bit diatas terletak di dalam kolom yang mewakili para pihak yang terlibat dalam sistem:
+> kolom pertama (hijau) milik `owner/user`
+> 
+> kolom kedua [biru] milik `group`
+>
+> kolom ketiga [oranye] milik `others`.
 
-Karena tiap kolom memiliki tiga atribut (`rwx`), jumlah maksimal yang dapat ditampung oleh ketiga bit tersebut adalah 2<sup>2</sup>[4] + 2<sup>1</sup>[2] + 2<sup>0</sup>[1] = 7. 
+Posisi bit dalam kolom tersebut mewakili tiga atribut yang akan menentukan jenis akses yang diberikan:
+> 2<sup>2</sup> = 4, untuk `r`
+> 
+> 2<sup>1</sup> = 2, untuk `w`
+>
+> 2<sup>0</sup> = 1, untuk `x`.
 
-Itulah kenapa bilangan octal yang digunakan, bukan decimal. Perlu anda ingat bahwa angka tertinggi dalam bilangan decimal adalah 9, sedangkan dalam octal adalah 7.
+Karena tiap kolom memiliki tiga atribut (`rwx`), jumlah maksimal yang dapat ditampung oleh ketiga bit tersebut adalah jumlah bilangan biner sampai angka ketiga dari kanan, yaitu 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup> = 7. 
 
-Dari ketiga kolom tersebut, terbentuklah sebuah atribut yang mewakili semua yang saya jelaskan diatas, yaitu `rwx` permission untuk ketiga pihak yang bersangkutan dalam sistem Linux.
+Itulah kenapa bilangan octal yang digunakan, bukan decimal. Perlu anda ingat bahwa angka tertinggi dalam bilangan decimal adalah 9, sedangkan dalam bilangan octal adalah 7, sehingga paling sesuai untuk kondisi ini.
+
+Gabungan dari tiga kolom dan tiga atribut diatas menyusun yang disebut **Basic Linux File Permission**.
+<br>
+<br>
+<br>
