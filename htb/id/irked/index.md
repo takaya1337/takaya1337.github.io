@@ -243,19 +243,34 @@ Semua file di Linux (termasuk directory/folder) memiliki tiga pasang atribut `rw
 > dan bisa dijalankan (`executable`)
 
 oleh:
-> **owner** (user yang digunakan saat pembuatan file)
+> `owner` (user yang digunakan saat pembuatan file)
 >
-> **group** (group utama/_primary group_ milik user)
+> `group` (group utama/_primary group_ milik user)
 >
-> **others** (user lain yang bukan pemilik dan tidak memiliki group yang sama dengan file).
+> `others` (user lain yang bukan pemilik dan tidak memiliki group yang sama dengan file).
 
 <br>
 
-Warna yang ada pada gambar menunjukkan milik siapa atribut `rwx` tersebut ditujukan:
-> hijau untuk owner/user
->
-> biru untuk group
->
-> oranye untuk others.
+Misalnya dalam kasus flag user milik **djmardov** tadi, anda tidak dapat "membaca" file tersebut karena semua permission untuk `group` dan `others` tidak diaktifkan, sehingga hanya sang pemilik, **djmardov** sendiri yang bisa membaca dan menulis file tersebut.
 
-<br>
+Itulah sebabnya anda wajib mendapatkan akses sebagai **djmardov** untuk membaca flag user, karena siapapun selain **djmardov** dan **root** tidak diperbolehkan membaca, menulis, maupun mengeksekusi file tersebut.
+
+Contoh lebih lanjut misalnya, ketika anda melakukan:
+```
+$ chmod 644 root.txt
+```
+
+Inilah yang terjadi:
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/perm2.png">
+</p>
+
+Bilangan octal yang anda masukkan sebagai argumen untuk `chmod` akan diterjemahkan ke dalam bentuk biner, untuk menyatakan apakah "bit" yang dimiliki atribut tersebut "dinyalakan" atau "dimatikan" (apabila anda inget pelajaran waktu SD, guru sering menerangkan bahwa komputer hanya mengerti 0 dan 1).
+
+Posisi bit tersebut mewakili atribut yang akan dinyalakan untuk kolom tersebut (kolom pertama [hijau] milik `owner/user`, kolom kedua [biru] milik `group`, dan kolom ketiga [oranye] milik `others`).
+
+Karena tiap kolom memiliki tiga atribut (`rwx`), jumlah maksimal yang dapat ditampung oleh ketiga bit tersebut adalah 2<sup>2</sup>[4] + 2<sup>1</sup>[2] + 2<sup>0</sup>[1] = 7. 
+
+Itulah kenapa bilangan octal yang digunakan, bukan decimal. Perlu anda ingat bahwa angka tertinggi dalam bilangan decimal adalah 9, sedangkan dalam octal adalah 7.
+
+Dari ketiga kolom tersebut, terbentuklah sebuah atribut yang mewakili semua yang saya jelaskan diatas, yaitu `rwx` permission untuk ketiga pihak yang bersangkutan dalam sistem Linux.

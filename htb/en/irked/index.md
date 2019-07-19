@@ -220,7 +220,7 @@ drwxrwxrwx 2 john john	  0 Jul 14 20:00 test-dir
 
 Each file (yes, directories are files too) has three `rwx` attributes that determines whether the file is `readable`, `writable`, and `executable` by the file's **owner** (the user under whom the file was created), **group** (by default will refer to the user's primary group), and **others** (everyone else).
 
-When you do
+When you do:
 ```
 $ chmod 644 root.txt
 ```
