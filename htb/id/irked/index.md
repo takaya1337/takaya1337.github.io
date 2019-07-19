@@ -291,3 +291,121 @@ Gabungan dari tiga kolom dan tiga atribut diatas menyusun yang disebut **Basic L
 <br>
 
 ### On to SUID, SGID, and Sticky Bit
+Dari penjelasan diatas, harusnya anda sudah mengetahui bahaya sebuah file yang memiliki permission 777, dimana siapapun dapat melakukan apa saja terhadap file tersebut.
+
+Terlebih lagi, apabila pemilik file tersebut adalah user lain, dan ada sesuatu yang aneh dari permissionnya.
+```
+-rwxrwxrwx 2 john john    0 Jul 14 20:00 script.sh
+```
+
+```
+-rwsrwxrwx 2 john john    0 Jul 14 21:00 shell.sh
+```
+
+Terlihat ada yang berbeda dari kedua permission diatas?
+
+Yang kedua akan menjalankan (mengeksekusi) `shell.sh` sebagai **john**, terlepas dari siapapun yang menjalankan file tersebut.
+
+Mengapa demikian?
+
+Contoh diatas merupakan sebuah bentuk dari tiga **Advanced Linux File Permission**.
+
+Ada tiga jenis permission lanjutan yang diterapkan dalam sistem Linux,
+
+> 1. **[SUID](https://www.linux.com/blog/what-suid-and-how-set-suid-linuxunix)** atau Set owner User ID, jika dinyalakan dalam suatu file akan membuat file tersebut dijalankan atas nama user yang tertera dalam permission.
+>
+> 2. **[SGID](https://www.linux.com/blog/what-sgid-and-how-set-sgid-linux)**, sama seperti SUID, hanya bedanya terletak pada group, bukan user.
+>
+> 3. **[Sticky Bit](https://www.linux.com/blog/what-sticky-bit-and-how-set-it-linux)**, permission yang umumnya terletak dalam directory dan membuat hanya si pemilik file yang bisa menghapus file yang dimilikinya.
+
+```
+$ SUID:
+-rwsr-xr-x 2  john john    0 Jul 14 20:00 user-script.sh
+
+$ SGID:
+-rwxr-sr-x 2  john smith   0 Jul 14 20:00 group-script.sh
+
+$ Sticky Bit
+drwxrwxrwt 13 root root    0 Jul 14 20:00 /tmp
+```
+
+Perhatikan perbedaan ketiga file diatas:
+> file pertama akan membuat `user-script.sh` berjalan dengan permission yang dimiliki **john**
+>
+> file kedua akan mengizinkan siapapun yang memiliki group **smith** dalam akunnya untuk menjalankan `group-script.sh` sebagai usernya sendiri namun dengan permission yang dimiliki group **smith**
+>
+> file ketiga tidak mengizinkan user **bruce** untuk menghapus file yang dimiliki user **john** maupun sebaliknya.
+
+Penjelasan diatas hanyalah penjelasan saya yang dibuat seringkas mungkin agar dapat dipahami dengan mudah, namun jika anda tertarik lebih lanjut anda dapat membaca artikel **[berikut](https://www.thegeekdiary.com/what-is-suid-sgid-and-sticky-bit/)**.
+<br>
+<br>
+<br>
+
+### Just a Common Binary, with a Special Permission
+Setelah mengetahui sedikit tentang cara kerja file permission di Linux, anda dapat membayangkan apa yang akan terjadi jika ada sebuah file yang dibuat oleh **root** dan memiliki SUID-bit.
+
+Biasanya, memang ada beberapa program yang memiliki SUID-bit agar dapat menjalankan fungsinya, contohnya: `sudo`. Hal ini membuktikan bahwa tidak semua file yang memiliki SUID-bit berbahaya, akan tetapi hal tersebut akan menjadi bahaya jika terjadi kesalahan implementasi program yang kemudian memiliki SUID-bit.
+
+Karena kebanyakan programmer/sysadmin sering menghalalkan segala cara agar pekerjaannya selesai dengan cepat, yang biasanya terjadi adalah hal-hal yang tidak diinginkan seperti yang dibicarakan diatas.
+
+Oleh sebab itu, pencarian file dengan _special permission_ menjadi suatu keharusan dalam tahap enumerasi.
+
+Untuk mencari file yang memiliki SUID-bit, anda dapat menggunakan `find`:
+```
+$ find / -perm -u=s -type f 2>/dev/null
+```
+> anda ingin mencari file mulai dari `/`
+>
+> dimana file tersebut memiliki `special permission dalam kolom user/owner`
+>
+> tipenya adalah `file` **bukan** `directory`
+>
+> dan anda tidak ingin melihat _error message_.
+
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked12-suid.png">
+</p>
+
+Dari semua program yang keluar dengan command diatas, carilah yang tidak semestinya ada di sistem. Seburuk-buruknya apabila anda harus mencoba satu-satu pun tidak memakan waktu lama. Akan tetapi jika anda ingin lebih efektif, anda dapat membandingkan file-file tersebut dengan file yang ada di komputer anda.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked13-anomaly.png">
+</p>
+
+Program ini saya temukan setelah beberapa kali _trial & error_. Jika anda jalankan, program ini akan menjalankan command `who` dan mencoba menjalankan **tmp/listusers** dengan `sh`.
+
+Jika benar, maka program ini dapat memberikan kita shell sebagai **root**. Agar lebih yakin, saya mengambil programnya lewat `scp` agar dapat dianalisa lebih lanjut.
+
+Perlu diketahui bahwa anda bisa berinteraksi langsung dengan box melalui alamat IP **tun0** yang diberikan dalam **.ovpn** anda, tetapi (menurut pihak HTB) anda tidak dapat berinteraksi dengan pemain lainnya menggunakan cara yang sama.
+
+Anda perlu menyalakan `openssh-server` agar bisa melakukan `scp` dengan box ini. Ada beberapa kasus dimana `scp` tidak bisa digunakan, namun `wget` bisa, ada juga sebaliknya. Hal seperti ini tidak dapat ditentukan adanya, karena murni tergantung dari box yang anda mainkan.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/exfiltrate-program.png">
+</p>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/file.png">
+</p>
+
+Program tersebut adalah ELF 32-bit, atau dapat disebut "exe-nya Linux". Anda bisa menggunakan _disassembler_ jika ingin melihat isinya.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/program.png">
+</p>
+
+Isi dari fungsi _main()_ program ini sangat sederhana, yaitu menjalankan `who`, menyalakan SUID-bit sebagai **root** (karena User ID **root** selalu '0'), dan mengeksekusi apapun yang ada di dalam **/tmp/listusers**.
+
+Dugaan awal saya benar, saya hanya perlu menaruh shell di file tersebut dan mengeksekusi program ini sehingga **root** akan membuka shell saya.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/03/irked15-privesc.png">
+</p>
+
+Asik, akhirnya dapat **#**!
