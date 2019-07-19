@@ -16,7 +16,7 @@ layout: default
 <br>
 
 ### A Special Note
-Karena beberapa hal, saya tidak dapat menyelesaikan _privilege escalation_ sebelum mesinnya dinonaktifkan. Karena saya sangat penasaran, saya mencoba melihat **[write-up orang lain](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)** dan mencoba mengerti tahap-tahapnya.
+Karena beberapa hal, saya tidak dapat menyelesaikan _privilege escalation_ sebelum boxnya dinonaktifkan. Karena saya sangat penasaran, saya mencoba melihat **[write-up orang lain](https://medium.com/bugbountywriteup/active-a-kerberos-and-active-directory-hackthebox-walkthrough-fed9bf755d15)** dan mencoba mengerti tahap-tahapnya.
 
 Saya tidak suka mengambil properti intelektual orang lain tanpa memberikan sumber yang jelas, dan saya harap anda dapat melakukan hal yang sama di kemudian hari.
 
@@ -45,13 +45,13 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.100
 <img src="https://takaya1337.github.io/htb/assets/02/02-nmap.png">
 </p>
 
-Mesin kali ini memiliki banyak _port_ yang terbuka sehingga berpotensi membingungkan pemain yang belum terbiasa. Akan tetapi, dari seluruh _service_ yang terlihat dari `nmap`, ada sebuah service yang dapat dienumerasi tanpa memiliki _credential_ apapun, yaitu **port 445** atau yang tertulis sebagai **microsoft-ds**.
+Box kali ini memiliki banyak _port_ yang terbuka sehingga berpotensi membingungkan pemain yang belum terbiasa. Akan tetapi, dari seluruh _service_ yang terlihat dari `nmap`, ada sebuah service yang dapat dienumerasi tanpa memiliki _credential_ apapun, yaitu **port 445** atau yang tertulis sebagai **microsoft-ds**.
 <br>
 <br>
 <br>
 
 ### SMB
-SMB atau _Server Message Block_ adalah sebuah protokol berbasis _client-server_ yang berfungsi untuk membagi akses terhadap sebuah file (atau service, misalnya _printer_) antara dua mesin atau lebih di dalam suatu jaringan.
+SMB atau _Server Message Block_ adalah sebuah protokol berbasis _client-server_ yang berfungsi untuk membagi akses terhadap sebuah file (atau service, misalnya _printer_) antara dua box atau lebih di dalam suatu jaringan.
 
 Perbedaan utama SMB dengan FTP terdapat dalam desainnya. SMB adalah **network sharing protocol** dimana tujuan utamanya ialah untuk **membagi akses** suatu file melalui sebuah jaringan sedangkan FTP, sesuai dengan namanya **file transfer protocol** dibuat untuk **mentransfer** file tanpa berinteraksi lebih lanjut dengan file tersebut.
 
@@ -95,7 +95,7 @@ Anda dapat mengambil file tersebut dengan menggunakan _command_ `get` sama seper
 <img src="https://takaya1337.github.io/htb/assets/02/05-groupxml.png">
 </p>
 
-Apabila anda membaca artikel tersebut, anda akan mengerti betapa vitalnya **cpassword** dalam mesin ini. Tag tersebut adalah credential yang dienkripsi oleh AES-256 bit yang seharusnya "relatif" aman, namun menjadi mudah untuk dipecahkan karena Microsoft membagikan **[kunci enkripsi](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be)** dalam situs dokumentasinya.
+Apabila anda membaca artikel tersebut, anda akan mengerti betapa vitalnya **cpassword** dalam box ini. Tag tersebut adalah credential yang dienkripsi oleh AES-256 bit yang seharusnya "relatif" aman, namun menjadi mudah untuk dipecahkan karena Microsoft membagikan **[kunci enkripsi](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be)** dalam situs dokumentasinya.
 
 Jika anda menggunakan Kali Linux seperti _heker-heker_ normal pada umumnya, `gpp-decrypt` telah tersedia dari awal.
 ```
@@ -139,7 +139,7 @@ Berikutnya anda hanya perlu melakukan _privilege escalation_ untuk mendapatkan *
 <br>
 
 ### Kerberos
-Tema utama dalam mesin ini adalah Active Directory, sesuai dengan nama mesinnya. Active Directory menggunakan **Kerberos**, sebuah protokol autentikasi yang melibatkan pihak ketiga berbasis tiket (apabila anda pernah bekerja di dunia IT, anda pasti familiar dengan hal seperti "membuka tiket" ketika ada kendala dan nantinya tim IT akan memeriksa rincian yang tertera dalam tiket anda) sebagai metode autentikasinya.
+Tema utama dalam box ini adalah Active Directory, sesuai dengan namanya. Active Directory menggunakan **Kerberos**, sebuah protokol autentikasi yang melibatkan pihak ketiga berbasis tiket (apabila anda pernah bekerja di dunia IT, anda pasti familiar dengan hal seperti "membuka tiket" ketika ada kendala dan nantinya tim IT akan memeriksa rincian yang tertera dalam tiket anda) sebagai metode autentikasinya.
 
 Untuk informasi lebih lanjut, saya sangat anjurkan untuk membaca artikel berikut tentang **[Kerberos](https://www.roguelynn.com/words/explain-like-im-5-kerberos/)**.
 

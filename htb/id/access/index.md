@@ -31,13 +31,13 @@ Karena saya bosan main CTF terus dan saya juga berpikir bahwa sudah banyak write
 
 * Bagaimana cara mainnya?
 
-HTB atau _Hack the Box_ adalah sebuah permainan dimana anda bisa memilih beberapa list _IP address_ "mesin-mesin" yang pasti memiliki kelemahan tertentu.
+HTB atau _Hack the Box_ adalah sebuah permainan dimana anda bisa memilih beberapa list _IP address_ mesin atau _box_ yang pasti memiliki kelemahan tertentu.
 
-Dari kelemahan tersebut, anda harus mendapatkan dua buah hash atau flag seperti "7f3ff9f556f5f470e41508ff970c794e". Ada dua flag dalam tiap mesin, yaitu **user** dan **root**.
+Dari kelemahan tersebut, anda harus mendapatkan dua buah hash atau flag seperti "7f3ff9f556f5f470e41508ff970c794e". Ada dua flag dalam tiap box, yaitu **user** dan **root**.
 
-Flag user anda dapatkan ketika anda mendapat akses pertama ke mesin dengan _privilege_ seadanya (user biasa). Flag root akan anda dapatkan ketika anda berhasil melakukan _privilege escalation_ (atau EOP dalam bahasa korporat) dimana anda mendapatkan akses sebagai user tertinggi (root atau Administrator).
+Flag user anda dapatkan ketika anda mendapat akses pertama ke box dengan _privilege_ seadanya (user biasa). Flag root akan anda dapatkan ketika anda berhasil melakukan _privilege escalation_ (atau EOP dalam bahasa korporat) dimana anda mendapatkan akses sebagai user tertinggi (root atau Administrator).
 
-Secara garis besar, tiap write-up akan saya bagi menjadi dua bab utama: User dan Root, dimana masing-masing bab akan memiliki penjelasan sendiri sesuai dengan kelemahan yang ada dalam mesin tersebut.
+Secara garis besar, tiap write-up akan saya bagi menjadi dua bab utama: User dan Root, dimana masing-masing bab akan memiliki penjelasan sendiri sesuai dengan kelemahan yang ada dalam box tersebut.
 
 Sekian untuk pendahuluan.
 
@@ -45,7 +45,7 @@ Sekian untuk pendahuluan.
 <br>
 
 ### NMAP
-Hal pertama yang perlu dilakukan ketika menemukan sebuah alamat IP adalah meng-`nmap` IP tersebut. Hal ini diperlukan agar kita dapat melihat gambaran mesin secara keseluruhan sehingga dapat menentukan serangan apa yang cocok. Sintaks favorit saya adalah:
+Hal pertama yang perlu dilakukan ketika menemukan sebuah alamat IP adalah meng-`nmap` IP tersebut. Hal ini diperlukan agar kita dapat melihat gambaran box secara keseluruhan sehingga dapat menentukan serangan apa yang cocok. Sintaks favorit saya adalah:
 
 ```
 $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
@@ -64,13 +64,13 @@ $ nmap -p 1-65535 -T4 -A -v 10.10.10.98
 <img src="https://takaya1337.github.io/htb/assets/01/01-nmap.png">
 </p>
 
-Dapat kita lihat bahwa mesin tersebut memiliki beberapa _service_ yang terbuka, yaitu: **FTP server, Telnet, dan HTTP server (Microsoft IIS 7.5)**. Mari kita cek yang paling pertama.
+Dapat kita lihat bahwa box tersebut memiliki beberapa _service_ yang terbuka, yaitu: **FTP server, Telnet, dan HTTP server (Microsoft IIS 7.5)**. Mari kita cek yang paling pertama.
 <br>
 <br>
 <br>
 
 ### FTP
-FTP atau _File Transfer Protocol_ adalah sebuah protokol atau **cara** untuk memindahkan file secara online. Anda bisa mencari info lebih lanjut tentang FTP di Internet (seperti perbedaan FTP dan FTPS serta mengapa anda tidak disarankan untuk menggunakan FTP untuk keperluan sehari-hari) karena saya hanya akan membahas yang berhubungan dengan mesin ini saja.
+FTP atau _File Transfer Protocol_ adalah sebuah protokol atau **cara** untuk memindahkan file secara online. Anda bisa mencari info lebih lanjut tentang FTP di Internet (seperti perbedaan FTP dan FTPS serta mengapa anda tidak disarankan untuk menggunakan FTP untuk keperluan sehari-hari) karena saya hanya akan membahas yang berhubungan dengan box ini saja.
 
 Untuk mengakses FTP anda dapat menggunakan FTP client (baik CLI maupun GUI).
 <br>
@@ -90,7 +90,7 @@ Anda bisa menggunakan _command-command_ FTP untuk berinteraksi dengan file yang 
 
 Bila anda mendapatkan error seperti gambar diatas dan anda melakukan sedikit _research_, anda akan tahu bahwa error tersebut disebabkan oleh tipe **file transfer** yang digunakan oleh FTP, yaitu **ASCII mode** dan **Binary mode**.
 
-**ASCII mode** akan mengubah _Line Feed_ yang dimiliki file bila transfer dilakukan ke mesin Windows dari Linux atau sebaliknya. Line Feed atau LF adalah sebuah ASCII karakter yang biasa direpresentasikan dengan bentuk "\n" atau yang lebih sering disebut "enter" oleh orang Indonesia. 
+**ASCII mode** akan mengubah _Line Feed_ yang dimiliki file bila transfer dilakukan ke box Windows dari Linux atau sebaliknya. Line Feed atau LF adalah sebuah ASCII karakter yang biasa direpresentasikan dengan bentuk "\n" atau yang lebih sering disebut "enter" oleh orang Indonesia. 
 
 Secara konvensi, Windows dan Linux memiliki Line Feed yang berbeda, dimana Windows menerapkan CRLF atau _Carriage Return Line Feed_: Carriage Return akan mengembalikan posisi cursor paling kiri secara horizontal (bayangkan mesin tik jaman dulu) setelah itu di"enter" oleh Line Feed; dan Linux hanya memakai LF saja.
 
@@ -136,7 +136,7 @@ Mantap, file-nya oke. Mari kita cek file tersebut lebih lanjut.
 <img src="https://takaya1337.github.io/htb/assets/01/09-filecheck.png">
 </p>
 
-Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, tidak sulit bagi orang Indonesia untuk mendapatkan akses ke mesin Windows :)
+Sepertinya file-file tersebut akan sangat bergantung pada Windows. Untungnya, tidak sulit bagi orang Indonesia untuk mendapatkan akses ke sistem Windows :)
 
 Tapi sebelumnya mari kita lihat Telnet terlebih dahulu.
 <br>
@@ -144,16 +144,16 @@ Tapi sebelumnya mari kita lihat Telnet terlebih dahulu.
 <br>
 
 ### Telnet
-Telnet atau _Teletype Network_ adalah sebuah protokol atau **cara** untuk mengakses sebuah _remote machine_. Bila anda familiar dengan SSH, Telnet adalah nenek moyangnya yang sedikit lebih berbahaya. Fungsinya sama seperti SSH, yaitu untuk memberikan akses interaktif dengan sebuah mesin lewat internet.
+Telnet atau _Teletype Network_ adalah sebuah protokol atau **cara** untuk mengakses sebuah _remote machine_. Bila anda familiar dengan SSH, Telnet adalah nenek moyangnya yang sedikit lebih berbahaya. Fungsinya sama seperti SSH, yaitu untuk memberikan akses interaktif dengan sebuah komputer lewat internet.
 
-Untuk _connect_ ke Telnet mesin ini, anda dapat menggunakan `telnet` command di Linux.
+Untuk _connect_ ke Telnet box ini, anda dapat menggunakan `telnet` command di Linux.
 <br>
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/01/10-telnetcheck.png">
 </p>
 
-Kita belum mendapatkan _credential_ yang diperlukan untuk mengakses Telnet. Anda bisa menyiapkan mesin Windows anda untuk langkah selanjutnya.
+Kita belum mendapatkan _credential_ yang diperlukan untuk mengakses Telnet. Anda bisa menyiapkan Windows anda untuk langkah selanjutnya.
 <br>
 <br>
 <br>
@@ -236,7 +236,7 @@ Mantap, sudah setengah jalan.
 <br>
 
 ### Enumeration
-Dalam setiap _pentest_/_heking_/mesin HTB, ada tahap dimana kita harus mencari informasi sebanyak-banyaknya agar lebih memudahkan kita dalam mengambil alih target. Tahap tersebut dapat dilakukan baik sebelum kita memulai (dengan tujuan _information gathering_) atau setelah kita mendapat akses terbatas seperti sekarang ini (dengan tujuan _privilege escalation_). Tahap tersebut disebut **enumeration**.
+Dalam setiap _pentest_/_heking_/box HTB, ada tahap dimana kita harus mencari informasi sebanyak-banyaknya agar kita dapat mengambil alih target. Tahap tersebut dapat dilakukan baik sebelum kita memulai (dengan tujuan _information gathering_) atau setelah kita mendapat akses terbatas seperti sekarang ini (dengan tujuan _privilege escalation_). Tahap tersebut disebut **enumeration**.
 
 Singkatnya kita menggali lebih dalam tentang apa saja yang dijalankan komputer dan apa saja yang bisa diakses. Sebagai panduan awal, anda bisa melihat apa yang kira-kira dapat dilakukan saat pertama mendapatkan shell dari link **[berikut](https://exploitedbunker.com/articles/pentest-cheatsheet/)**.
 

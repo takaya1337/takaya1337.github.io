@@ -8,4 +8,4 @@ layout: default
 
 |   Handy Documentations    |
 |:--------------------------|
-| **[OpenVPN Configuration, the Hard Way [ongoing]](https://takaya1337.github.io/others/documentations/ovpn)**|
+| **[to do](https://takaya1337.github.io/others/documentations/wormcastle)**|
