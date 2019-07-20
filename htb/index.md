@@ -37,6 +37,8 @@ So that's it, have a good time.
 | 02/02/19 - Irked 	 		| **[EN](https://takaya1337.github.io/htb/en/irked) [ID](https://takaya1337.github.io/htb/id/irked)**			|
 | 11/07/19 - Friendzone 	| **[EN](https://takaya1337.github.io/htb/en/friendzone) [ID](https://takaya1337.github.io/htb/id/friendzone)**	|
 
+For obvious reasons, the flags shown in my write-ups will be censored in a way, some only partially just to show that the flag is true, while the rest will be completely taken out (with `mspaint.exe` of course). So if you see a `cat user.txt` or `type user.txt` with just an empty line below it, you can be sure that the flag has been cut off. No flags stealing allowed, even on retired machines.
+
 {::comment}
 | **[16/1218 - SecNotes](https://takaya1337.github.io/htb/en/secnotes)** | **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/id/secnotes)**     |
 {:/comment}
