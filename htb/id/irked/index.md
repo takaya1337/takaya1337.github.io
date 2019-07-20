@@ -229,7 +229,7 @@ Contoh permission dapat berbentuk seperti ini:
 drwxrwxrwx 2 john john    0 Jul 14 20:00 test-dir
 -rw-r--r-- 1 root root   32 Aug 10 00:00 root.txt
 ```
-> atau lebih nikmat jika disajikan berwarna:
+> akan lebih nikmat jika disajikan berwarna:
 
 <p align="center"> 
 <img src="https://takaya1337.github.io/htb/assets/03/perm.png">
@@ -312,11 +312,11 @@ Contoh diatas merupakan sebuah bentuk dari tiga **Advanced Linux File Permission
 
 Ada tiga jenis permission lanjutan yang diterapkan dalam sistem Linux,
 
-> 1. **[SUID](https://www.linux.com/blog/what-suid-and-how-set-suid-linuxunix)** atau Set owner User ID, jika dinyalakan dalam suatu file akan membuat file tersebut dijalankan atas nama user yang tertera dalam permission.
->
-> 2. **[SGID](https://www.linux.com/blog/what-sgid-and-how-set-sgid-linux)**, sama seperti SUID, hanya bedanya terletak pada group, bukan user.
->
-> 3. **[Sticky Bit](https://www.linux.com/blog/what-sticky-bit-and-how-set-it-linux)**, permission yang umumnya terletak dalam directory dan membuat hanya si pemilik file yang bisa menghapus file yang dimilikinya.
+1. **[SUID](https://www.linux.com/blog/what-suid-and-how-set-suid-linuxunix)** atau Set owner User ID, jika dinyalakan dalam suatu file akan membuat file tersebut dijalankan atas nama user yang tertera dalam permission.
+
+2. **[SGID](https://www.linux.com/blog/what-sgid-and-how-set-sgid-linux)**, sama seperti SUID, hanya bedanya terletak pada group, bukan user.
+
+3. **[Sticky Bit](https://www.linux.com/blog/what-sticky-bit-and-how-set-it-linux)**, permission yang umumnya terletak dalam directory dan membuat hanya si pemilik file yang bisa menghapus file yang dimilikinya.
 
 ```
 $ SUID:
