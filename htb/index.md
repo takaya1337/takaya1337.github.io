@@ -32,10 +32,10 @@ So that's it, have a good time.
 
 |       Machine      |
 |:-------------------|
-| **29/11/18 - Access [EN](https://takaya1337.github.io/htb/en/access) [ID](https://takaya1337.github.io/htb/id/access)**	|
-| **11/12/18 - Active [EN](https://takaya1337.github.io/htb/en/active) [ID](https://takaya1337.github.io/htb/id/active)**	|
-| **02/02/19 - Irked [EN](https://takaya1337.github.io/htb/en/irked) [ID](https://takaya1337.github.io/htb/id/irked)**		|
-| 11/07/19 - Friendzone **[EN](https://takaya1337.github.io/htb/en/friendzone) [ID](https://takaya1337.github.io/htb/id/friendzone)**	|
+| 29/11/18 - Access 	 	**[EN](https://takaya1337.github.io/htb/en/access) [ID](https://takaya1337.github.io/htb/id/access)**	|
+| 11/12/18 - Active 	 	**[EN](https://takaya1337.github.io/htb/en/active) [ID](https://takaya1337.github.io/htb/id/active)**	|
+| 02/02/19 - Irked 	 		**[EN](https://takaya1337.github.io/htb/en/irked) [ID](https://takaya1337.github.io/htb/id/irked)**		|
+| 11/07/19 - Friendzone 	**[EN](https://takaya1337.github.io/htb/en/friendzone) [ID](https://takaya1337.github.io/htb/id/friendzone)**	|
 
 {::comment}
 | **[16/1218 - SecNotes](https://takaya1337.github.io/htb/en/secnotes)** | **[16/12/18 - SecNotes](https://takaya1337.github.io/htb/id/secnotes)**     |
