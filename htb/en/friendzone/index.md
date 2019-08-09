@@ -92,7 +92,16 @@ The article above is enough to give you the ability to proceed on the box, but i
 
 In a simple term, DNS or _Domain Name System_ is like a phone book which will point the "name of your contacts" to their respective "phone numbers". In this analogy, consider the "name of contacts" as the **domain name** and the "phone numbers" as **IP addresses**.
 
-Everytime you type a domain name, for example www.google.com, the browser will first contact the DNS server (usually provided by your ISP or can also be overridden through your computer's settings), which will then try to "resolve" the domain name into its IP address(es). 
+Everytime you type a domain name, for example www.google.com, the browser will first contact the DNS server (usually provided by your ISP or can also be overridden through your computer's settings), which will then try to "resolve" the domain name into its IP address(es).
+
+The ISP's DNS will try to check in its cache to see if it still have the "answer", if it doesn't, it will query the root name server which will then return the correct TLD or _Top Level Domain_ for the domain name, and so on until the host is reached.
+<br>
+
+<p align="center"> 
+<img src="https://takaya1337.github.io/htb/assets/04/06-fz-dns-hierarchy.png">
+</p>
+
+
 <br>
 <br>
 <br>
