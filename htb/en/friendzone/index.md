@@ -95,6 +95,10 @@ In a simple term, DNS or _Domain Name System_ is like a phone book which will po
 Everytime you type a domain name, for example www.google.com, the browser will first contact the DNS server (usually provided by your ISP or can also be overridden through your computer's settings), which will then try to "resolve" the domain name into its IP address(es).
 
 The ISP's DNS will try to check in its cache to see if it still have the "answer", if it doesn't, it will query the root name server which will then return the correct TLD or _Top Level Domain_ for the domain name, and so on until the host is reached.
+
+For example: `mail.google.com.`
+
+Will get queried from `.` -> `com` -> `google` -> `mail`
 <br>
 
 <p align="center"> 
