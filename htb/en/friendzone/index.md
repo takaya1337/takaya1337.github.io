@@ -87,5 +87,16 @@ Among the types of enumeration listed on the article, one that caught my eye was
 <br>
 <br>
 
+### DNS in a Glance
+The article above is enough to give you the ability to proceed on the box, but if you want to know more, keep reading this section.
+
+In a simple term, DNS or _Domain Name System_ is like a phone book which will point the "name of your contacts" to their respective "phone numbers". In this analogy, consider the "name of contacts" as the **domain name** and the "phone numbers" as **IP addresses**.
+
+Everytime you type a domain name, for example www.google.com, the browser will first contact the DNS server (usually provided by your ISP or can also be overridden through your computer's settings), which will then try to "resolve" the domain name into its IP address(es). 
+<br>
+<br>
+<br>
+
 ### To the Transfer Zone
+
 

@@ -35,7 +35,7 @@ So that's it, have a good time.
 | 29/11/18 - Access 	 	| **[EN](https://takaya1337.github.io/htb/en/access) [ID](https://takaya1337.github.io/htb/id/access)**			|
 | 11/12/18 - Active 	 	| **[EN](https://takaya1337.github.io/htb/en/active) [ID](https://takaya1337.github.io/htb/id/active)**			|
 | 02/02/19 - Irked 	 		| **[EN](https://takaya1337.github.io/htb/en/irked) [ID](https://takaya1337.github.io/htb/id/irked)**			|
-| 11/07/19 - Friendzone 	| **[EN](https://takaya1337.github.io/htb/en/friendzone) [ID](https://takaya1337.github.io/htb/id/friendzone)**	|
+| 11/07/19 - Friendzone (incomplete) 	| **[EN](https://takaya1337.github.io/htb/en/friendzone) [ID](https://takaya1337.github.io/htb/id/friendzone)**	|
 
 For obvious reasons, the flags shown in my write-ups will be censored in a way, some only partially just to show that the flag is true, while the rest will be completely taken out (with `mspaint.exe` of course). So if you see a `cat user.txt` or `type user.txt` with just an empty line below it, you can be sure that the flag has been cut off. No flags stealing allowed, even on retired machines.
 

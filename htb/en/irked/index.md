@@ -49,7 +49,7 @@ Let's see what we can find from it.
 <br>
 
 ### IRC
-IRC is a protocol that allows multiple client to chat in real-time. It was created by Jarkko (also known as WiZ) somewhere in the 90's. I once saw a thread dedicated for him in an image board, it was quite nice. IRC may not be as popular now as it was back then, but it was significant back in the day (or so I've heard).
+IRC is a protocol that allows multiple client to chat in real-time. It was created by Jarkko (also known as WiZ) somewhere in the 90's. I once saw a thread dedicated for him in an image board, it was quite nice. IRC may not be as popular now as it was back then, but it was significant back in the day, or so I've heard.
 
 You can check the IRC by connecting to it, but as the website says, it's just "almost" working.
 <br>
